@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'modules/private_group_screen/private_group.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Ying Yang'),
+      home: PrivateGroup(),
     );
   }
 }
