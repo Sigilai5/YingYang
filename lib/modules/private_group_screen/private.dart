@@ -26,13 +26,13 @@ class _DashboardState extends State<Private> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text("Private",style: TextStyle(color: Colors.red),),
+            Text("Private",style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,),),
             VerticalDivider(),
             GestureDetector(
               onTap: (){
                 Navigator.pushNamed(context, "/group");
               },
-              child: Text("Groups",style: TextStyle(color: Colors.grey),),
+              child: Text("Groups",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,),),
             ),
 
           ],
@@ -67,6 +67,7 @@ class _DashboardState extends State<Private> {
                    child: Text("Matches",style: TextStyle(
                      fontSize: 20,
                      fontFamily: 'Proxima',
+                     fontWeight: FontWeight.bold,
                      color: Colors.black,
                    ),
                    ),
@@ -75,6 +76,7 @@ class _DashboardState extends State<Private> {
 
                 ],
               ),
+
               Container(
                 height: 85,
                 child: Expanded(
@@ -90,7 +92,7 @@ class _DashboardState extends State<Private> {
                               child: Column(
                                 children: [
                                   ListTile(
-                                    title: Text(titles[i]),
+                                    title: Text(titles[i],style: TextStyle(fontWeight: FontWeight.bold,),),
                                     subtitle: Text(subtitles[i],overflow: TextOverflow.ellipsis,),
                                     leading: Image.asset(leadings[i],height: 40,width: 40,),
                                   ),
@@ -117,6 +119,7 @@ class _DashboardState extends State<Private> {
                     Text(message_count,style: TextStyle(
                       fontSize: 20,
                       fontFamily: 'Arial',
+                      fontWeight: FontWeight.bold,
                       color: Colors.red,
                     ),
                     ),
@@ -133,7 +136,7 @@ class _DashboardState extends State<Private> {
                     itemBuilder: (context, index){
                       return Card(
                         child: ListTile(
-                          title: Text(titles[index]),
+                          title: Text(titles[index],style: TextStyle(fontWeight: FontWeight.bold,),),
                           subtitle: Text(subtitles[index],overflow: TextOverflow.ellipsis,),
                           leading: Image.asset(leadings[index],height: 40,width: 40,),
                         ),

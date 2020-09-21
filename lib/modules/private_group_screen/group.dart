@@ -31,10 +31,10 @@ class _DashboardState extends State<Group> {
                     onTap: (){
                       Navigator.pushNamed(context, "/private");
                     },
-                    child: Text("Private",style: TextStyle(color: Colors.grey),),
+                    child: Text("Private",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,),),
                   ),
                   VerticalDivider(),
-                  Text("Groups",style: TextStyle(color: Colors.red),),
+                  Text("Groups",style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,),),
                 ],
               )
               ,)
@@ -65,8 +65,9 @@ class _DashboardState extends State<Group> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Text("View Popular Group Chats around You.",style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 15,
                         fontFamily: 'Proxima',
+                        fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
                       ),
@@ -83,6 +84,7 @@ class _DashboardState extends State<Group> {
                       Text(groups_count,style: TextStyle(
                         fontSize: 20,
                         fontFamily: 'Arial',
+                        fontWeight: FontWeight.bold,
                         color: Colors.red,
                       ),
                       ),
@@ -100,10 +102,10 @@ class _DashboardState extends State<Group> {
                       itemBuilder: (context, index){
                         return Card(
                           child: ListTile(
-                            title: Text(titles[index]),
+                            title: Text(titles[index],style: TextStyle(fontWeight: FontWeight.bold,),),
                             subtitle: Text(subtitles[index],overflow: TextOverflow.ellipsis,),
                             leading: Image.asset(leadings[index],height: 40,width: 40,),
-                            trailing: Text(trailing[index],style: TextStyle(color: Colors.red),),
+                            trailing: Text(trailing[index],style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,),),
                           ),
                         );
                       },
