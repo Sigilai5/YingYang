@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'modules/private_group_screen/private_group.dart';
+import 'modules/private_group_screen/private.dart';
+import 'modules/private_group_screen/group.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,6 +9,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/private':(context) => Private(),
+        '/group':(context) => Group(),
+      },
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -21,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: PrivateGroup(),
+      home: Private(),
     );
   }
 }
