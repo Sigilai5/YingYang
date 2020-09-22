@@ -100,15 +100,10 @@ class _DashboardState extends State<Private> {
                               ),
                             ),
                           );
-
                         }
-
                   ),
 
                       )
-
-
-
                 ),
               ),
               Row(
