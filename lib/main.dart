@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'modules/private.dart';
+import 'modules/group.dart';
 
 import 'modules/dashboard.dart';
 
@@ -9,8 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/private':(context) => Private(),
+        '/group':(context) => Group(),
+      },
       title: 'Flutter Demo',
       theme: ThemeData(
+      fontFamily: 'Proxima',
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
@@ -22,7 +29,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Dashboard(),
+      home: Private(),
     );
   }
 }

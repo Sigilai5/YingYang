@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatefulWidget {
-  //BottomNavItem(this.index,this.image);
 
   @override
   _BottomNavState createState() => _BottomNavState();
@@ -11,7 +10,6 @@ class _BottomNavState extends State<BottomNav> {
   int index;
   Image image;
   int _selectedItem = 0;
-  //_BottomNavItemState(this.image,this.index);
 
   @override
   Widget build(BuildContext context) {
