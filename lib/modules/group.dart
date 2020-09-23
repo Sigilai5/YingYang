@@ -2,7 +2,7 @@ import 'package:app/widgets/bottom-nav-item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-
+import 'package:hexcolor/hexcolor.dart';
 
 class Group extends StatefulWidget {
   @override
@@ -52,7 +52,7 @@ class _DashboardState extends State<Group> {
             padding: const EdgeInsets.only(left: 8,right: 12,top: 12,bottom: 12),
             child: Column(
               children: <Widget>[
-                TextFormField( decoration: InputDecoration(labelText: "Search Groups...",filled: true,fillColor: Colors.white,prefixIcon: new Padding(
+                TextFormField( decoration: InputDecoration(labelText: "Search Groups...",border: InputBorder.none,filled: true,fillColor: Colors.white,prefixIcon: new Padding(
                   padding: const EdgeInsets.only( top: 15, left: 5, right: 0, bottom: 15),
                   child: new SizedBox(
                     height: 4,
@@ -63,16 +63,19 @@ class _DashboardState extends State<Group> {
                 ),
                 Row(
                   children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text("View Popular Group Chats around You.",style: TextStyle(
-                        fontSize: 15,
-                        fontFamily: 'Proxima',
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                      ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: FittedBox(
+                          fit:BoxFit.fitWidth,
+                          child: Text("View Popular Group Chats around You.",style: TextStyle(
+                            fontFamily: 'Proxima',
+                            color: Hexcolor('#5d5d5d')
+                          ),
+                          ),
+                        ),
 
+                      ),
                     ),
 
                   ],

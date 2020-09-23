@@ -52,7 +52,7 @@ class _DashboardState extends State<Private> {
               padding: const EdgeInsets.only(left: 8,right: 12,top: 12,bottom: 12),
               child: Column(
                 children: <Widget>[
-                  TextFormField( decoration: InputDecoration(labelText: "Search Matches...",filled: true,fillColor: Colors.white,prefixIcon: new Padding(
+                  TextFormField( decoration: InputDecoration(labelText: "Search Matches...",border: InputBorder.none,filled: true,fillColor: Colors.white,prefixIcon: new Padding(
                     padding: const EdgeInsets.only( top: 15, left: 5, right: 0, bottom: 15),
                     child: new SizedBox(
                       height: 4,
