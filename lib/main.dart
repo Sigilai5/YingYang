@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'modules/private.dart';
 import 'modules/group.dart';
-
-import 'modules/dashboard.dart';
+import 'package:app/modules/chat.dart';
+import 'package:app/modules/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,8 +19,10 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',
       routes: {
         '/':(context) => Private(),
-        //'/private':(context) => Private(),
-        '/group':(context) => Group(),
+        '/private':(context) => Private(),
+        '/home' : (context) => MyHomePage(),
+        '/chat' : (context) => ChatPage(),
+        '/group': (context) => Group(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -39,4 +41,8 @@ class _MyAppState extends State<MyApp> {
       //home: Private(),
     );
   }
+
 }
+
+
+

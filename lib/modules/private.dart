@@ -54,7 +54,10 @@ class _DashboardState extends State<Private> {
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("assets/images/background.png"),
-                  fit: BoxFit.cover)),
+                  fit: BoxFit.cover,
+//                  colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
+              ),
+          ),
           child: Padding(
             padding:
                 const EdgeInsets.only(left: 8, right: 12, top: 12, bottom: 12),
