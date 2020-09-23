@@ -213,9 +213,4 @@ final messages = titles.length;
 String message_count = 'Messages($messages)';
 int _index = 0;
 
-final productData = [
-  'Discipline curl',
-  'https://sgdfgdgd/jdkjdhj.png/jashdghd',
-  20,
-  'akhsgdahghsgdh'
-];
+
