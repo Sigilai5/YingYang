@@ -1,12 +1,12 @@
 class PrivateData {
-  String title;
-  String subtitle;
+  String name;
+  String message;
   String pic;
 
   PrivateData({
-   this.title,
-   this.subtitle,
-   this.pic
+   this.name,
+   this.message,
+   this.pic,
 });
 
 }

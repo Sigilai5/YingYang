@@ -11,11 +11,36 @@ class Group extends StatefulWidget {
 }
 
 class _DashboardState extends State<Group> {
+  List<GroupData> groupDataList = [
+    GroupData(
+        name: 'Bbab Mamr',
+        message: 'how are you?',
+        pic: 'assets/images/Layer_74.png',
+        members: 30),
+    GroupData(
+        name: 'Bbab Mamr',
+        message: 'how are you?',
+        pic: 'assets/images/Layer_75.png',
+        members: 30),
+    GroupData(
+        name: 'Bbab Mamr',
+        message: 'how are you?',
+        pic: 'assets/images/Layer_76.png',
+        members: 30),
+    GroupData(
+        name: 'Bbab Mamr',
+        message: 'how are you?',
+        pic: 'assets/images/Layer_78-hdpi.png',
+        members: 30),
+    GroupData(
+        name: 'Bbab Mamr',
+        message: 'how are you?',
+        pic: 'assets/images/Layer_77-xhdpi.png',
+        members: 30),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
     return MaterialApp(
       theme: ThemeData(
           fontFamily: 'Proxima', appBarTheme: AppBarTheme(color: Colors.white)),
@@ -99,7 +124,7 @@ class _DashboardState extends State<Group> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Text(
-                        groups_count,
+                        'Your Groups(${groupDataList.length})',
                         style: TextStyle(
                           fontSize: 20,
                           fontFamily: 'Arial',
@@ -112,38 +137,43 @@ class _DashboardState extends State<Group> {
                 ),
                 Expanded(
                   child: Container(
-                    child: ListView.builder(
-                      itemCount: titles.length,
-                      itemBuilder: (context, index) {
-                        return Card(
-                          child: ListTile(
-                            title: Text(
-                              titles[index],
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Hexcolor('#4a4a4a')),
-                            ),
-                            subtitle: Text(
-                              subtitles[index],
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(color: Hexcolor('#b5b5b5')),
-                            ),
-                            leading: Image.asset(
-                              leadings[index],
-                              height: 40,
-                              width: 40,
-                            ),
-                            trailing: Text(
-                              trailing[index],
-                              style: TextStyle(
-                                color: Hexcolor('#ff0000'),
-                                fontWeight: FontWeight.bold,
+                    child: ListView(
+                        children: groupDataList.map((item) {
+                      return Card(
+                        child: Container(
+                          width: 230.0,
+                          child: Column(
+                            children: [
+                              ListTile(
+                                title: Text(
+                                  '${item.name}',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Hexcolor('#4a4a4a')),
+                                ),
+                                subtitle: Text(
+                                  '${item.message}',
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(color: Hexcolor('#b5b5b5')),
+                                ),
+                                leading: Image.asset(
+                                  '${item.pic}',
+                                  height: 40,
+                                  width: 40,
+                                ),
+                                trailing: Text(
+                                  '(${item.members} members)',
+                                  style: TextStyle(
+                                    color: Hexcolor('#ff0000'),
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
-                        );
-                      },
-                    ),
+                        ),
+                      );
+                    }).toList()),
                   ),
                 )
               ],
@@ -155,54 +185,3 @@ class _DashboardState extends State<Group> {
     );
   }
 }
-
-final titles = [
-  'Bhbab Mame',
-  'Bari Mohan',
-  'Bzayer Wejho',
-  'Bchaq Mahmoum',
-  'Bhikh Chyoukh',
-  'Bhbab Mamar',
-  'Bari Mohan',
-  'Bzayer Wejho',
-  'Bchaq Mahmoum',
-  'Bhikh Chyoukh'
-];
-final subtitles = [
-  'how are you?',
-  'Looking good',
-  'how are you?',
-  'How are you?',
-  'Did you check my message?',
-  'how are you?',
-  'Looking good',
-  'how are you?',
-  'How are you?',
-  'Did you check my message?'
-];
-final leadings = [
-  'assets/images/Layer_74.png',
-  'assets/images/Layer_75.png',
-  'assets/images/Layer_76.png',
-  'assets/images/Layer_77-xhdpi.png',
-  'assets/images/Layer_78-hdpi.png',
-  'assets/images/Layer_74.png',
-  'assets/images/Layer_75.png',
-  'assets/images/Layer_76.png',
-  'assets/images/Layer_77-xhdpi.png',
-  'assets/images/Layer_78-hdpi.png'
-];
-final messages = titles.length;
-String groups_count = 'Your Groups($messages)';
-final trailing = [
-  "(30 members)",
-  "(27 members)",
-  "(64 members)",
-  "(17 members)",
-  "(32 members)",
-  "(30 members)",
-  "(27 members)",
-  "(64 members)",
-  "(17 members)",
-  "(32 members)",
-];

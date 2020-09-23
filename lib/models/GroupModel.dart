@@ -1,12 +1,14 @@
 class GroupData {
-  String title;
-  String subtitle;
+  String name;
+  String message;
   String pic;
+  int members;
 
   GroupData({
-    this.title,
-    this.subtitle,
-    this.pic
+    this.name,
+    this.message,
+    this.pic,
+    this.members,
   });
 
 }
