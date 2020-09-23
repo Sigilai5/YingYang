@@ -22,135 +22,135 @@ class _DashboardState extends State<Private> {
           )
       ),
       home: Scaffold(
-      appBar: AppBar(
-        title:IntrinsicHeight(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text("Private",style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,),),
-            VerticalDivider(),
-            GestureDetector(
-              onTap: (){
-                Navigator.pushNamed(context, "/group");
-              },
-              child: Text("Groups",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,),),
-            ),
-
-          ],
-        )
-          ,)
-      ),
-
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage("assets/images/background.png"),
-                fit: BoxFit.cover)
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 8,right: 12,top: 12,bottom: 12),
-          child: Column(
-            children: <Widget>[
-              TextFormField( decoration: InputDecoration(labelText: "Search Matches...",filled: true,fillColor: Colors.white,prefixIcon: new Padding(
-                padding: const EdgeInsets.only( top: 15, left: 5, right: 0, bottom: 15),
-                child: new SizedBox(
-                  height: 4,
-                  child: Image.asset("assets/images/Search.png"),
+          appBar: AppBar(
+            title:IntrinsicHeight(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text("Private",style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,),),
+                VerticalDivider(),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pushNamed(context, "/group");
+                  },
+                  child: Text("Groups",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,),),
                 ),
-              ),
-              ),
-              ),
-              Row(
+
+              ],
+            )
+              ,)
+          ),
+
+          body: Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+                image: DecorationImage(image: AssetImage("assets/images/background.png"),
+                    fit: BoxFit.cover)
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8,right: 12,top: 12,bottom: 12),
+              child: Column(
                 children: <Widget>[
-                 Padding(
-                   padding: const EdgeInsets.all(10.0),
-                   child: Text("Matches",style: TextStyle(
-                     fontSize: 20,
-                     fontFamily: 'Proxima',
-                     fontWeight: FontWeight.bold,
-                     color: Colors.black,
-                   ),
-                   ),
+                  TextFormField( decoration: InputDecoration(labelText: "Search Matches...",filled: true,fillColor: Colors.white,prefixIcon: new Padding(
+                    padding: const EdgeInsets.only( top: 15, left: 5, right: 0, bottom: 15),
+                    child: new SizedBox(
+                      height: 4,
+                      child: Image.asset("assets/images/Search.png"),
+                    ),
+                  ),
+                  ),
+                  ),
+                  Row(
+                    children: <Widget>[
+                     Padding(
+                       padding: const EdgeInsets.all(10.0),
+                       child: Text("Matches",style: TextStyle(
+                         fontSize: 20,
+                         fontFamily: 'Proxima',
+                         fontWeight: FontWeight.bold,
+                         color: Colors.black,
+                       ),
+                       ),
 
-                 ),
+                     ),
 
-                ],
-              ),
+                    ],
+                  ),
 
-              Container(
-                height: 85,
-                child: Expanded(
-                      child: Container(
-                        child: ListView.builder(
-                  // This next line does the trick.
-                  scrollDirection: Axis.horizontal,
-                        itemCount: titles.length,
-                        itemBuilder:(context,i){
-                          return Card(
-                            child: Container(
-                              width: 230.0,
-                              child: Column(
-                                children: [
-                                  ListTile(
-                                    title: Text(titles[i],style: TextStyle(fontWeight: FontWeight.bold,),),
-                                    subtitle: Text(subtitles[i],overflow: TextOverflow.ellipsis,),
-                                    leading: Image.asset(leadings[i],height: 40,width: 40,),
+                  Container(
+                    height: 85,
+                    child: Expanded(
+                          child: Container(
+                            child: ListView.builder(
+                      // This next line does the trick.
+                      scrollDirection: Axis.horizontal,
+                            itemCount: titles.length,
+                            itemBuilder:(context,i){
+                              return Card(
+                                child: Container(
+                                  width: 230.0,
+                                  child: Column(
+                                    children: [
+                                      ListTile(
+                                        title: Text(titles[i],style: TextStyle(fontWeight: FontWeight.bold,),),
+                                        subtitle: Text(subtitles[i],overflow: TextOverflow.ellipsis,),
+                                        leading: Image.asset(leadings[i],height: 40,width: 40,),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              );
+                            }
+                      ),
+
+                          )
+                    ),
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child:
+                        Text(message_count,style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'Arial',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red,
+                        ),
+                        ),
+
+                      ),
+
+
+                    ],
+                  ),
+                  Expanded(
+                    child: Container(
+                      child: ListView.builder(
+                        itemCount: titles.length,
+                        itemBuilder: (context, index){
+                          return Card(
+                            child: ListTile(
+                              title: Text(titles[index],style: TextStyle(fontWeight: FontWeight.bold,),),
+                              subtitle: Text(subtitles[index],overflow: TextOverflow.ellipsis,),
+                              leading: Image.asset(leadings[index],height: 40,width: 40,),
                             ),
                           );
-                        }
-                  ),
+                        },
 
-                      )
-                ),
-              ),
-              Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child:
-                    Text(message_count,style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'Arial',
-                      fontWeight: FontWeight.bold,
-                      color: Colors.red,
-                    ),
+
+                      ),
                     ),
 
-                  ),
+                  )
 
-
-                ],
-              ),
-              Expanded(
-                child: Container(
-                  child: ListView.builder(
-                    itemCount: titles.length,
-                    itemBuilder: (context, index){
-                      return Card(
-                        child: ListTile(
-                          title: Text(titles[index],style: TextStyle(fontWeight: FontWeight.bold,),),
-                          subtitle: Text(subtitles[index],overflow: TextOverflow.ellipsis,),
-                          leading: Image.asset(leadings[index],height: 40,width: 40,),
-                        ),
-                      );
-                    },
-
-
-                  ),
-                ),
-
-              )
-
-]
+    ]
+            ),
+            ),
+          ),
+          bottomNavigationBar: BottomNav(),
         ),
-        ),
-      ),
-      bottomNavigationBar: BottomNav(),
-    ),
       );
 
   }
