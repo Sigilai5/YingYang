@@ -2,8 +2,6 @@ import 'package:app/models/ChatModel.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
-
 class ChatPage extends StatefulWidget {
   ChatPage({Key key, this.title}) : super(key: key);
 
@@ -254,8 +252,11 @@ class _ChatPageState extends State<ChatPage> {
                                             )
                                           ],
                                         ),
-                                      ));
-                                }).toList())),
+                                      )
+                                  );
+                                }).toList()
+                            )
+                        ),
                         SizedBox(
                           height: 10,
                         ),

@@ -1,4 +1,5 @@
 import 'package:app/widgets/bottom-nav-item.dart';
+import 'package:app/models/GroupModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -10,7 +11,6 @@ class Group extends StatefulWidget {
 }
 
 class _DashboardState extends State<Group> {
-  int _selectedItem = 0;
 
   @override
   Widget build(BuildContext context) {

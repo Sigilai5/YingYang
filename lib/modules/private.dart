@@ -1,16 +1,50 @@
 import 'package:app/widgets/bottom-nav-item.dart';
+import 'package:app/models/PrivateModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class Private extends StatefulWidget {
+
   @override
   _DashboardState createState() => _DashboardState();
 }
 
 class _DashboardState extends State<Private> {
-  int _selectedItem = 0;
+  List<PrivateData> personDataList = [
+    PrivateData(
+          title: 'Bbab Mamr',
+          subtitle: 'how are you?',
+          pic: 'assets/images/Layer_74.png'
+        ),
+    PrivateData(
+        title: 'Bari Mohan',
+        subtitle: 'Looking good',
+        pic: 'assets/images/Layer_75.png'
+    ),
+    PrivateData(
+        title: 'Bzayer Wejho',
+        subtitle: 'Where is Mary?',
+        pic: 'assets/images/Layer_76.png'
+    ),
+    PrivateData(
+        title: 'Bchaq Mahmoum',
+        subtitle: 'Just do it',
+        pic: 'assets/images/Layer_77-xhdpi.png'
+    ),
+    PrivateData(
+        title: 'Bhikh Chyoukh',
+        subtitle: 'You love Chelsea?',
+        pic: 'assets/images/Layer_78-hdpi.png'
+    ),
+    PrivateData(
+        title: 'Bchaq Mahmoum',
+        subtitle: 'I saw her today',
+        pic: 'assets/images/Layer_77-xhdpi.png'
+    ),
+  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +96,8 @@ class _DashboardState extends State<Private> {
           child: Padding(
             padding:
             const EdgeInsets.only(left: 8, right: 12, top: 12, bottom: 12),
-            child: Column(children: <Widget>[
+            child: Column(
+              children: <Widget>[
               TextFormField(
                 decoration: InputDecoration(
                   labelText: "Search Matches...",
@@ -79,6 +114,7 @@ class _DashboardState extends State<Private> {
                   ),
                 ),
               ),
+
               Row(
                 children: <Widget>[
                   Padding(
@@ -95,56 +131,58 @@ class _DashboardState extends State<Private> {
                   ),
                 ],
               ),
-              Container(
-                height: 85,
-                child: Column(
-                  children: [
-                    Expanded(
-                        child: Container(
-                          child: ListView.builder(
-                            // This next line does the trick.
-                              scrollDirection: Axis.horizontal,
-                              itemCount: titles.length,
-                              itemBuilder: (context, i) {
-                                return Card(
-                                  child: Container(
-                                    width: 230.0,
-                                    child: Column(
-                                      children: [
-                                        ListTile(
-                                          title: Text(
-                                            titles[i],
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                color: Hexcolor('#4a4a4a')),
+                    Container(
+                      height: 85,
+                      child: Column(
+                        children: [
+                          Expanded(
+                              child: Container(
+                                child: ListView(
+                  // This next line does the trick.
+                  scrollDirection: Axis.horizontal,
+                                children: personDataList.map((item){
+                                  return   Card(
+                                    child: Container(
+                                      width: 230.0,
+                                      child: Column(
+                                        children: [
+                                          ListTile(
+                                            title: Text(
+                                              '${item.title}',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Hexcolor('#4a4a4a')),
+                                            ),
+                                            subtitle: Text(
+                                              '${item.subtitle}',
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                  color: Hexcolor('#b5b5b5')),
+                                            ),
+                                            leading: Image.asset(
+                                              '${item.pic}',
+                                              height: 40,
+                                              width: 40,
+                                            ),
                                           ),
-                                          subtitle: Text(
-                                            subtitles[i],
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                                color: Hexcolor('#b5b5b5')),
-                                          ),
-                                          leading: Image.asset(
-                                            leadings[i],
-                                            height: 40,
-                                            width: 40,
-                                          ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                );
-                              }),
-                        )),
-                  ],
+                                  );
+                                }).toList()),
                 ),
               ),
+                        ],
+                      ),
+                    ),
+
+
               Row(
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Text(
-                      message_count,
+                      'Messages(${personDataList.length})',
                       style: TextStyle(
                         fontSize: 20,
                         fontFamily: 'Arial',
@@ -157,66 +195,51 @@ class _DashboardState extends State<Private> {
               ),
               Expanded(
                 child: Container(
-                  child: ListView.builder(
-                    itemCount: titles.length,
-                    itemBuilder: (context, index) {
-                      return Card(
-                        child: ListTile(
-                          title: Text(
-                            titles[index],
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Hexcolor('#4a4a4a')),
+                  child: ListView(
+                      children: personDataList.map((item){
+                        return   Card(
+                          child: Container(
+                            width: 230.0,
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  title: Text(
+                                    '${item.title}',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Hexcolor('#4a4a4a')),
+                                  ),
+                                  subtitle: Text(
+                                    '${item.subtitle}',
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        color: Hexcolor('#b5b5b5')),
+                                  ),
+                                  leading: Image.asset(
+                                    '${item.pic}',
+                                    height: 40,
+                                    width: 40,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                          subtitle: Text(
-                            subtitles[index],
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(color: Hexcolor('#b5b5b5')),
-                          ),
-                          leading: Image.asset(
-                            leadings[index],
-                            height: 40,
-                            width: 40,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                        );
+                      }).toList()),
                 ),
               )
-            ]),
-          ),
+
+          ]
+
         ),
+
+    ),
+      ),
         bottomNavigationBar: BottomNav(),
       ),
     );
   }
 }
 
-final titles = [
-  'Bbab Mamr',
-  'Bari Mohan',
-  'Bzayer Wejho',
-  'Bchaq Mahmoum',
-  'Bhikh Chyoukh',
-  'Bchaq Mahmoum'
-];
-final subtitles = [
-  'how are you?',
-  'Looking good',
-  'how are you?',
-  'How are you?',
-  'Did you check my message?',
-  'Looking good'
-];
-final leadings = [
-  'assets/images/Layer_74.png',
-  'assets/images/Layer_75.png',
-  'assets/images/Layer_76.png',
-  'assets/images/Layer_77-xhdpi.png',
-  'assets/images/Layer_78-hdpi.png',
-  'assets/images/Layer_77-xhdpi.png'
-];
-final messages = titles.length;
-String message_count = 'Messages($messages)';
-int _index = 0;
+
+
