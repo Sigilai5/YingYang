@@ -20,44 +20,48 @@ class _DashboardState extends State<Private> {
       theme: ThemeData(
           fontFamily: 'Proxima', appBarTheme: AppBarTheme(color: Colors.white)),
       home: Scaffold(
+        resizeToAvoidBottomPadding: false,
         appBar: AppBar(
             title: IntrinsicHeight(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                "Private",
-                style: TextStyle(
-                  color: Colors.red,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              VerticalDivider(),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, "/group");
-                },
-                child: Text(
-                  "Groups",
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    "Private",
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
+                  VerticalDivider(),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, "/group");
+                    },
+                    child: Text(
+                      "Groups",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        )),
+            )),
         body: Container(
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/background.png"),
-                  fit: BoxFit.cover)),
+            image: DecorationImage(
+                image: AssetImage("assets/images/background.png"),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.2), BlendMode.dstATop)),
+          ),
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 8, right: 12, top: 12, bottom: 12),
+            const EdgeInsets.only(left: 8, right: 12, top: 12, bottom: 12),
             child: Column(children: <Widget>[
               TextFormField(
                 decoration: InputDecoration(
@@ -93,43 +97,47 @@ class _DashboardState extends State<Private> {
               ),
               Container(
                 height: 85,
-                child: Expanded(
-                    child: Container(
-                  child: ListView.builder(
-                      // This next line does the trick.
-                      scrollDirection: Axis.horizontal,
-                      itemCount: titles.length,
-                      itemBuilder: (context, i) {
-                        return Card(
-                          child: Container(
-                            width: 230.0,
-                            child: Column(
-                              children: [
-                                ListTile(
-                                  title: Text(
-                                    titles[i],
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Hexcolor('#4a4a4a')),
+                child: Column(
+                  children: [
+                    Expanded(
+                        child: Container(
+                          child: ListView.builder(
+                            // This next line does the trick.
+                              scrollDirection: Axis.horizontal,
+                              itemCount: titles.length,
+                              itemBuilder: (context, i) {
+                                return Card(
+                                  child: Container(
+                                    width: 230.0,
+                                    child: Column(
+                                      children: [
+                                        ListTile(
+                                          title: Text(
+                                            titles[i],
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Hexcolor('#4a4a4a')),
+                                          ),
+                                          subtitle: Text(
+                                            subtitles[i],
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                color: Hexcolor('#b5b5b5')),
+                                          ),
+                                          leading: Image.asset(
+                                            leadings[i],
+                                            height: 40,
+                                            width: 40,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  subtitle: Text(
-                                    subtitles[i],
-                                    overflow: TextOverflow.ellipsis,
-                                    style:
-                                        TextStyle(color: Hexcolor('#b5b5b5')),
-                                  ),
-                                  leading: Image.asset(
-                                    leadings[i],
-                                    height: 40,
-                                    width: 40,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      }),
-                )),
+                                );
+                              }),
+                        )),
+                  ],
+                ),
               ),
               Row(
                 children: <Widget>[
@@ -212,5 +220,3 @@ final leadings = [
 final messages = titles.length;
 String message_count = 'Messages($messages)';
 int _index = 0;
-
-
