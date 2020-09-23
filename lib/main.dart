@@ -13,12 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/private':(context) => Private(),
-        '/group':(context) => Group(),
+        '/private': (context) => Private(),
+        '/group': (context) => Group(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(
-      fontFamily: 'Proxima',
+        fontFamily: 'Proxima',
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
