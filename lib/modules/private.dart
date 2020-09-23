@@ -27,7 +27,7 @@ class _DashboardState extends State<Private> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text("Private",style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,),),
+                Text("Privates",style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,),),
                 VerticalDivider(),
                 GestureDetector(
                   onTap: (){
