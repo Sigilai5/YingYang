@@ -70,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(
             "Home",
             style: TextStyle(
+              fontFamily: "Proxima",
               color: redColor,
             ),
           ),
@@ -164,6 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Text("${item.likeCount}",
                                                   style: TextStyle(
                                                       color: redColor,
+                                                      fontFamily: "Proxima",
                                                       fontWeight:
                                                           FontWeight.bold)),
                                             ],
@@ -182,6 +184,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               Text("${item.dislikeCount}",
                                                   style: TextStyle(
                                                       color: redColor,
+                                                      fontFamily: "Proxima",
                                                       fontWeight:
                                                           FontWeight.bold))
                                             ],
@@ -198,6 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     "Follow",
                                     style: TextStyle(
                                         color: redColor,
+                                        fontFamily: "Proxima",
                                         fontWeight: FontWeight.bold),
                                   ),
                                   IconButton(
