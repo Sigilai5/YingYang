@@ -144,11 +144,10 @@ class _MyHomePageState extends State<MyHomePage> {
                           color: Color.fromRGBO(255, 255, 255, 0.6),
                           height: 40,
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
                                   Container(
                                     margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
