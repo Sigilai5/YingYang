@@ -212,5 +212,3 @@ final leadings = [
 final messages = titles.length;
 String message_count = 'Messages($messages)';
 int _index = 0;
-
-
