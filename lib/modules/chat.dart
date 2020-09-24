@@ -1,17 +1,6 @@
+import 'package:app/models/ChatModel.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-class ChatData {
-  String names;
-  String location;
-  String pic;
-
-  ChatData({
-    this.names,
-    this.location,
-    this.pic,
-  });
-}
 
 class ChatPage extends StatefulWidget {
   ChatPage({Key key, this.title}) : super(key: key);
@@ -90,7 +79,10 @@ class _ChatPageState extends State<ChatPage> {
             ),
           ),
           leading: new IconButton(
-            icon: new Icon(Icons.menu),
+            icon: Image(
+              image: AssetImage("assets/images/menu-bar.png"),
+              width: 30,
+            ),
             color: Color.fromRGBO(220, 220, 220, 1),
             onPressed: () {},
           ),
