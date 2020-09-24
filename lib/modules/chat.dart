@@ -267,8 +267,11 @@ class _ChatPageState extends State<ChatPage> {
                                             )
                                           ],
                                         ),
-                                      ));
-                                }).toList())),
+                                      )
+                                  );
+                                }).toList()
+                            )
+                        ),
                         SizedBox(
                           height: 10,
                         ),

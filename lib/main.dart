@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        //'/': (context) => MyHomePage(),
+        '/': (context) => Private(),
         '/private': (context) => Private(),
         '/home': (context) => MyHomePage(),
         '/chat': (context) => ChatPage(),
@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      //home: Private(),
     );
   }
 }
