@@ -224,19 +224,18 @@ class _ChatPageState extends State<ChatPage> {
                           ],
                         ),
                         Container(
-                            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                            //padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                             child: Wrap(
                                 direction: Axis.horizontal,
-                                //alignment: WrapAlignment.end,
                                 children: chatDataList.map((item) {
                                   return Container(
-                                      width: 185,
+                                      width: 165,
                                       child: Card(
                                         child: Row(
                                           children: <Widget>[
                                             Padding(
                                               padding:
-                                                  const EdgeInsets.all(8.0),
+                                                  const EdgeInsets.all(4.0),
                                               child: Image(
                                                 image:
                                                     AssetImage("${item.pic}"),
@@ -270,7 +269,8 @@ class _ChatPageState extends State<ChatPage> {
                           mainAxisSize: MainAxisSize.max,
                           children: <Widget>[
                             Container(
-                              width: width / 2,
+                              margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                              width: width / 2.5,
                               child: Card(
                                 child: IconButton(
                                     iconSize: 30,
@@ -286,7 +286,7 @@ class _ChatPageState extends State<ChatPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 30,
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
