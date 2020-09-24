@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
 import 'modules/private.dart';
 import 'modules/group.dart';
-import 'package:hexcolor/hexcolor.dart';
-
-import 'modules/dashboard.dart';
+import 'package:app/modules/chat.dart';
+import 'package:app/modules/home.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
       routes: {
+        '/': (context) => Private(),
         '/private': (context) => Private(),
+        '/home': (context) => MyHomePage(),
+        '/chat': (context) => ChatPage(),
         '/group': (context) => Group(),
       },
       title: 'Flutter Demo',
@@ -30,7 +38,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Private(),
+      //home: Private(),
     );
   }
 }

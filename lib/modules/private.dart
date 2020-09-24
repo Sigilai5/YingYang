@@ -1,4 +1,5 @@
 import 'package:app/widgets/bottom-nav-item.dart';
+import 'package:app/models/PrivateModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -10,7 +11,32 @@ class Private extends StatefulWidget {
 }
 
 class _DashboardState extends State<Private> {
-  int _selectedItem = 0;
+  List<PrivateData> privateDataList = [
+    PrivateData(
+        name: 'Bbab Mamr',
+        message: 'how are you?',
+        pic: 'assets/images/Layer_74.png'),
+    PrivateData(
+        name: 'Bari Mohan',
+        message: 'Looking good',
+        pic: 'assets/images/Layer_75.png'),
+    PrivateData(
+        name: 'Bzayer Wejho',
+        message: 'Where is Mary?',
+        pic: 'assets/images/Layer_76.png'),
+    PrivateData(
+        name: 'Bchaq Mahmoum',
+        message: 'Just do it',
+        pic: 'assets/images/Layer_77-xhdpi.png'),
+    PrivateData(
+        name: 'Bhikh Chyoukh',
+        message: 'You love Chelsea?',
+        pic: 'assets/images/Layer_78-hdpi.png'),
+    PrivateData(
+        name: 'Bchaq Mahmoum',
+        message: 'I saw her today',
+        pic: 'assets/images/Layer_77-xhdpi.png'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +46,7 @@ class _DashboardState extends State<Private> {
       theme: ThemeData(
           fontFamily: 'Proxima', appBarTheme: AppBarTheme(color: Colors.white)),
       home: Scaffold(
+        resizeToAvoidBottomPadding: false,
         appBar: AppBar(
             title: IntrinsicHeight(
           child: Row(
@@ -52,9 +79,12 @@ class _DashboardState extends State<Private> {
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/background.png"),
-                  fit: BoxFit.cover)),
+            image: DecorationImage(
+                image: AssetImage("assets/images/background.png"),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.2), BlendMode.dstATop)),
+          ),
           child: Padding(
             padding:
                 const EdgeInsets.only(left: 8, right: 12, top: 12, bottom: 12),
@@ -93,50 +123,54 @@ class _DashboardState extends State<Private> {
               ),
               Container(
                 height: 85,
-                child: Expanded(
-                    child: Container(
-                  child: ListView.builder(
-                      // This next line does the trick.
-                      scrollDirection: Axis.horizontal,
-                      itemCount: titles.length,
-                      itemBuilder: (context, i) {
-                        return Card(
-                          child: Container(
-                            width: 230.0,
-                            child: Column(
-                              children: [
-                                ListTile(
-                                  title: Text(
-                                    titles[i],
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Hexcolor('#4a4a4a')),
-                                  ),
-                                  subtitle: Text(
-                                    subtitles[i],
-                                    overflow: TextOverflow.ellipsis,
-                                    style:
-                                        TextStyle(color: Hexcolor('#b5b5b5')),
-                                  ),
-                                  leading: Image.asset(
-                                    leadings[i],
-                                    height: 40,
-                                    width: 40,
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        child: ListView(
+                            // This next line does the trick.
+                            scrollDirection: Axis.horizontal,
+                            children: privateDataList.map((item) {
+                              return Card(
+                                child: Container(
+                                  width: 230.0,
+                                  child: Column(
+                                    children: [
+                                      ListTile(
+                                        title: Text(
+                                          '${item.name}',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Hexcolor('#4a4a4a')),
+                                        ),
+                                        subtitle: Text(
+                                          '${item.message}',
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              color: Hexcolor('#b5b5b5')),
+                                        ),
+                                        leading: Image.asset(
+                                          '${item.pic}',
+                                          height: 40,
+                                          width: 40,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                        );
-                      }),
-                )),
+                              );
+                            }).toList()),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Row(
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Text(
-                      message_count,
+                      'Messages(${privateDataList.length})',
                       style: TextStyle(
                         fontSize: 20,
                         fontFamily: 'Arial',
@@ -149,31 +183,36 @@ class _DashboardState extends State<Private> {
               ),
               Expanded(
                 child: Container(
-                  child: ListView.builder(
-                    itemCount: titles.length,
-                    itemBuilder: (context, index) {
-                      return Card(
-                        child: ListTile(
-                          title: Text(
-                            titles[index],
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Hexcolor('#4a4a4a')),
-                          ),
-                          subtitle: Text(
-                            subtitles[index],
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(color: Hexcolor('#b5b5b5')),
-                          ),
-                          leading: Image.asset(
-                            leadings[index],
-                            height: 40,
-                            width: 40,
-                          ),
+                  child: ListView(
+                      children: privateDataList.map((item) {
+                    return Card(
+                      child: Container(
+                        width: 230.0,
+                        child: Column(
+                          children: [
+                            ListTile(
+                              title: Text(
+                                '${item.name}',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Hexcolor('#4a4a4a')),
+                              ),
+                              subtitle: Text(
+                                '${item.message}',
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(color: Hexcolor('#b5b5b5')),
+                              ),
+                              leading: Image.asset(
+                                '${item.pic}',
+                                height: 40,
+                                width: 40,
+                              ),
+                            ),
+                          ],
                         ),
-                      );
-                    },
-                  ),
+                      ),
+                    );
+                  }).toList()),
                 ),
               )
             ]),
@@ -184,31 +223,3 @@ class _DashboardState extends State<Private> {
     );
   }
 }
-
-final titles = [
-  'Bbab Mamr',
-  'Bari Mohan',
-  'Bzayer Wejho',
-  'Bchaq Mahmoum',
-  'Bhikh Chyoukh',
-  'Bchaq Mahmoum'
-];
-final subtitles = [
-  'how are you?',
-  'Looking good',
-  'how are you?',
-  'How are you?',
-  'Did you check my message?',
-  'Looking good'
-];
-final leadings = [
-  'assets/images/Layer_74.png',
-  'assets/images/Layer_75.png',
-  'assets/images/Layer_76.png',
-  'assets/images/Layer_77-xhdpi.png',
-  'assets/images/Layer_78-hdpi.png',
-  'assets/images/Layer_77-xhdpi.png'
-];
-final messages = titles.length;
-String message_count = 'Messages($messages)';
-int _index = 0;
