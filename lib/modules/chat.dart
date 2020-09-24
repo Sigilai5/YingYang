@@ -78,13 +78,28 @@ class _ChatPageState extends State<ChatPage> {
               color: redColor,
             ),
           ),
-          leading: new IconButton(
-            icon: Image(
-              image: AssetImage("assets/images/menu-bar.png"),
-              width: 30,
+          leading: Container(
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(50),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 7,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+              ],
             ),
-            color: Color.fromRGBO(220, 220, 220, 1),
-            onPressed: () {},
+            child: new IconButton(
+              icon: Image(
+                image: AssetImage("assets/images/menu-bar.png"),
+                width: 30,
+              ),
+              color: Color.fromRGBO(220, 220, 220, 1),
+              onPressed: () {},
+            ),
           ),
         ),
         body: SafeArea(
