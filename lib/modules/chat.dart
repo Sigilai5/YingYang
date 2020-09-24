@@ -29,6 +29,7 @@ class _ChatPageState extends State<ChatPage> {
         names: "Bari Mohan",
         location: "Baghda, QR",
         pic: "assets/images/bari.png"),
+
   ];
 
   final Color chatGrey = Colors.grey;
@@ -252,11 +253,8 @@ class _ChatPageState extends State<ChatPage> {
                                             )
                                           ],
                                         ),
-                                      )
-                                  );
-                                }).toList()
-                            )
-                        ),
+                                      ));
+                                }).toList())),
                         SizedBox(
                           height: 10,
                         ),
@@ -301,6 +299,8 @@ class _ChatPageState extends State<ChatPage> {
 
             // This trailing comma makes auto-formatting nicer for build methods.
           ),
-        )));
+        )
+        )
+    );
   }
 }

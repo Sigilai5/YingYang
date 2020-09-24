@@ -49,32 +49,37 @@ class _DashboardState extends State<Private> {
         resizeToAvoidBottomPadding: false,
         appBar: AppBar(
             title: IntrinsicHeight(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                "Private",
-                style: TextStyle(
-                  color: Colors.red,
-                  fontWeight: FontWeight.bold,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Private",
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(width:10.0),
+                    VerticalDivider(),
+                    SizedBox(width:10.0),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, "/group");
+                      },
+                      child: Text(
+                        "Groups",
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              VerticalDivider(),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, "/group");
-                },
-                child: Text(
-                  "Groups",
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        )),
+            )),
         body: Container(
           width: double.infinity,
           height: double.infinity,
@@ -87,7 +92,7 @@ class _DashboardState extends State<Private> {
           ),
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 8, right: 12, top: 12, bottom: 12),
+            const EdgeInsets.only(left: 8, right: 12, top: 12, bottom: 12),
             child: Column(children: <Widget>[
               TextFormField(
                 decoration: InputDecoration(
@@ -128,7 +133,7 @@ class _DashboardState extends State<Private> {
                     Expanded(
                       child: Container(
                         child: ListView(
-                            // This next line does the trick.
+                          // This next line does the trick.
                             scrollDirection: Axis.horizontal,
                             children: privateDataList.map((item) {
                               return Card(
@@ -185,34 +190,34 @@ class _DashboardState extends State<Private> {
                 child: Container(
                   child: ListView(
                       children: privateDataList.map((item) {
-                    return Card(
-                      child: Container(
-                        width: 230.0,
-                        child: Column(
-                          children: [
-                            ListTile(
-                              title: Text(
-                                '${item.name}',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Hexcolor('#4a4a4a')),
-                              ),
-                              subtitle: Text(
-                                '${item.message}',
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(color: Hexcolor('#b5b5b5')),
-                              ),
-                              leading: Image.asset(
-                                '${item.pic}',
-                                height: 40,
-                                width: 40,
-                              ),
+                        return Card(
+                          child: Container(
+                            width: 230.0,
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  title: Text(
+                                    '${item.name}',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Hexcolor('#4a4a4a')),
+                                  ),
+                                  subtitle: Text(
+                                    '${item.message}',
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(color: Hexcolor('#b5b5b5')),
+                                  ),
+                                  leading: Image.asset(
+                                    '${item.pic}',
+                                    height: 40,
+                                    width: 40,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                      ),
-                    );
-                  }).toList()),
+                          ),
+                        );
+                      }).toList()),
                 ),
               )
             ]),
