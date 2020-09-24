@@ -1,21 +1,8 @@
+import 'package:app/models/HomeDataModel.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomeData {
-  String backgroundImage;
-  String foreImage;
-  String likeCount;
-  String dislikeCount;
-  String followUsername;
 
-  HomeData({
-    this.backgroundImage,
-    this.foreImage,
-    this.likeCount,
-    this.dislikeCount,
-    this.followUsername,
-  });
-}
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
