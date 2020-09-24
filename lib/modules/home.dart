@@ -83,8 +83,22 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           actions: [
-            Padding(
-              padding: EdgeInsets.all(18.0),
+            Container(
+              margin: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(50),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+              ),
+              height: 50,
+              width: 40,
               child: Icon(
                 Icons.search,
                 color: Color.fromRGBO(220, 220, 220, 1),
