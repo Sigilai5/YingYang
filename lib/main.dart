@@ -18,10 +18,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/':(context) => ChatPage(),
-        '/private':(context) => Private(),
-        '/home' : (context) => MyHomePage(),
-        '/chat' : (context) => ChatPage(),
+        '/': (context) => ChatPage(),
+        '/private': (context) => Private(),
+        '/home': (context) => MyHomePage(),
+        '/chat': (context) => ChatPage(),
         '/group': (context) => Group(),
       },
       title: 'Flutter Demo',

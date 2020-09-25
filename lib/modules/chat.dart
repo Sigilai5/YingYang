@@ -2,8 +2,6 @@ import 'package:app/models/ChatModel.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
-
 class ChatPage extends StatefulWidget {
   ChatPage({Key key, this.title}) : super(key: key);
 
@@ -80,10 +78,28 @@ class _ChatPageState extends State<ChatPage> {
               color: redColor,
             ),
           ),
-          leading: new IconButton(
-            icon: new Icon(Icons.menu),
-            color: Color.fromRGBO(220, 220, 220, 1),
-            onPressed: () {},
+          leading: Container(
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(50),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 7,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+              ],
+            ),
+            child: new IconButton(
+              icon: Image(
+                image: AssetImage("assets/images/menu-bar.png"),
+                width: 30,
+              ),
+              color: Color.fromRGBO(220, 220, 220, 1),
+              onPressed: () {},
+            ),
           ),
         ),
         body: SafeArea(
@@ -215,19 +231,18 @@ class _ChatPageState extends State<ChatPage> {
                           ],
                         ),
                         Container(
-                            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                            //padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                             child: Wrap(
                                 direction: Axis.horizontal,
-                                //alignment: WrapAlignment.end,
                                 children: chatDataList.map((item) {
                                   return Container(
-                                      width: 185,
+                                      width: 165,
                                       child: Card(
                                         child: Row(
                                           children: <Widget>[
                                             Padding(
                                               padding:
-                                                  const EdgeInsets.all(8.0),
+                                                  const EdgeInsets.all(4.0),
                                               child: Image(
                                                 image:
                                                     AssetImage("${item.pic}"),
@@ -252,8 +267,11 @@ class _ChatPageState extends State<ChatPage> {
                                             )
                                           ],
                                         ),
-                                      ));
-                                }).toList())),
+                                      )
+                                  );
+                                }).toList()
+                            )
+                        ),
                         SizedBox(
                           height: 10,
                         ),
@@ -261,7 +279,8 @@ class _ChatPageState extends State<ChatPage> {
                           mainAxisSize: MainAxisSize.max,
                           children: <Widget>[
                             Container(
-                              width: width / 2,
+                              margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                              width: width / 2.5,
                               child: Card(
                                 child: IconButton(
                                     iconSize: 30,
@@ -277,7 +296,7 @@ class _ChatPageState extends State<ChatPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 30,
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
