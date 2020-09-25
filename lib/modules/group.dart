@@ -47,34 +47,34 @@ class _DashboardState extends State<Group> {
       home: Scaffold(
         appBar: AppBar(
             title: IntrinsicHeight(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, "/private");
-                    },
-                    child: Text(
-                      "Private",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, "/private");
+                },
+                child: Text(
+                  "Private",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold,
                   ),
-                  SizedBox(width:10.0),
-                  VerticalDivider(),
-                  SizedBox(width:10.0),
-                  Text(
-                    "Groups",
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+                ),
               ),
-            )),
+              SizedBox(width: 10.0),
+              VerticalDivider(),
+              SizedBox(width: 10.0),
+              Text(
+                "Groups",
+                style: TextStyle(
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        )),
         body: Container(
           width: double.infinity,
           height: double.infinity,
@@ -84,7 +84,7 @@ class _DashboardState extends State<Group> {
                   fit: BoxFit.cover)),
           child: Padding(
             padding:
-            const EdgeInsets.only(left: 8, right: 12, top: 12, bottom: 12),
+                const EdgeInsets.only(left: 8, right: 12, top: 12, bottom: 12),
             child: Column(
               children: <Widget>[
                 TextFormField(
@@ -140,41 +140,41 @@ class _DashboardState extends State<Group> {
                 Flexible(
                   child: ListView(
                       children: groupDataList.map((item) {
-                        return Card(
-                          child: Container(
-                            width: 230.0,
-                            child: Column(
-                              children: [
-                                ListTile(
-                                  title: Text(
-                                    '${item.name}',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Hexcolor('#4a4a4a')),
-                                  ),
-                                  subtitle: Text(
-                                    '${item.message}',
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(color: Hexcolor('#b5b5b5')),
-                                  ),
-                                  leading: Image.asset(
-                                    '${item.pic}',
-                                    height: 40,
-                                    width: 40,
-                                  ),
-                                  trailing: Text(
-                                    '(${item.members} members)',
-                                    style: TextStyle(
-                                      color: Hexcolor('#ff0000'),
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
+                    return Card(
+                      child: Container(
+                        width: 230.0,
+                        child: Column(
+                          children: [
+                            ListTile(
+                              title: Text(
+                                '${item.name}',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Hexcolor('#4a4a4a')),
+                              ),
+                              subtitle: Text(
+                                '${item.message}',
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(color: Hexcolor('#b5b5b5')),
+                              ),
+                              leading: Image.asset(
+                                '${item.pic}',
+                                height: 40,
+                                width: 40,
+                              ),
+                              trailing: Text(
+                                '(${item.members} members)',
+                                style: TextStyle(
+                                  color: Hexcolor('#ff0000'),
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              ],
+                              ),
                             ),
-                          ),
-                        );
-                      }).toList()),
+                          ],
+                        ),
+                      ),
+                    );
+                  }).toList()),
                 ),
 //                Row(
 //                  children: <Widget>[
