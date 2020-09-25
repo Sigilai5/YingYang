@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/':(context) => Group(),
+        '/':(context) => Private(),
         '/private':(context) => Private(),
         '/home' : (context) => MyHomePage(),
         '/chat' : (context) => ChatPage(),

@@ -38,6 +38,8 @@ class _DashboardState extends State<Private> {
         pic: 'assets/images/Layer_77-xhdpi.png'),
   ];
 
+
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -126,48 +128,50 @@ class _DashboardState extends State<Private> {
                   ),
                 ],
               ),
-              Container(
-                height: 85,
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        child: ListView(
-                          // This next line does the trick.
-                            scrollDirection: Axis.horizontal,
-                            children: privateDataList.map((item) {
-                              return Card(
-                                child: Container(
-                                  width: 230.0,
-                                  child: Column(
-                                    children: [
-                                      ListTile(
-                                        title: Text(
-                                          '${item.name}',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Hexcolor('#4a4a4a')),
+              Flexible(
+                child: Container(
+                  height: 85,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          child: ListView(
+                            // This next line does the trick.
+                              scrollDirection: Axis.horizontal,
+                              children: privateDataList.map((item) {
+                                return Card(
+                                  child: Container(
+                                    width: 230.0,
+                                    child: Column(
+                                      children: [
+                                        ListTile(
+                                          title: Text(
+                                            '${item.name}',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Hexcolor('#4a4a4a')),
+                                          ),
+                                          subtitle: Text(
+                                            '${item.message}',
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                color: Hexcolor('#b5b5b5')),
+                                          ),
+                                          leading: Image.asset(
+                                            '${item.pic}',
+                                            height: 40,
+                                            width: 40,
+                                          ),
                                         ),
-                                        subtitle: Text(
-                                          '${item.message}',
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              color: Hexcolor('#b5b5b5')),
-                                        ),
-                                        leading: Image.asset(
-                                          '${item.pic}',
-                                          height: 40,
-                                          width: 40,
-                                        ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              );
-                            }).toList()),
+                                );
+                              }).toList()),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Row(
@@ -186,7 +190,9 @@ class _DashboardState extends State<Private> {
                   ),
                 ],
               ),
-              Expanded(
+
+              Flexible(
+                flex: 2,
                 child: Container(
                   child: ListView(
                       children: privateDataList.map((item) {
@@ -219,12 +225,14 @@ class _DashboardState extends State<Private> {
                         );
                       }).toList()),
                 ),
-              )
+              ),
+
             ]),
           ),
         ),
         bottomNavigationBar: BottomNav(),
       ),
+
     );
   }
 }
