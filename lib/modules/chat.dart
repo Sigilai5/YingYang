@@ -37,7 +37,7 @@ class _ChatPageState extends State<ChatPage> {
       fontWeight: FontWeight.bold,
       fontFamily: "Proxima");
   final TextStyle smallerTextStyle = TextStyle(
-    color: Color.fromRGBO(150, 150, 150, 1),
+    color: Color.fromRGBO(181, 181, 181, 1),
     fontFamily: "Proxima",
   );
   final TextStyle chatTextWithShadow = TextStyle(
@@ -65,9 +65,8 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    final redColor = Color.fromRGBO(255, 11, 22, 1);
+    final redColor = Color.fromRGBO(255, 1, 31, 1);
     var size = MediaQuery.of(context).size;
-    final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
     final double itemWidth = size.width / 2;
 
     return Scaffold(
@@ -136,9 +135,9 @@ class _ChatPageState extends State<ChatPage> {
                     Container(
                       padding: EdgeInsets.fromLTRB(20, 0, 20, 5),
                       child: Text(
-                        "Excepteur sing occaecat cupidatat non proident, sunt in cuipa qui official deserunt.",
-                        style: TextStyle(color: chatGrey),
-                      ),
+                          "Excepteur sing occaecat cupidatat non proident, sunt in cuipa qui official deserunt.",
+                          style: TextStyle(
+                              color: Color.fromRGBO(137, 137, 137, 1))),
                     ),
                     Container(
                       child: Padding(
@@ -152,7 +151,8 @@ class _ChatPageState extends State<ChatPage> {
                             fillColor: Colors.white,
                             filled: true,
                             hintText: "Group Name...",
-                            hintStyle: TextStyle(color: chatGrey),
+                            hintStyle: TextStyle(
+                                color: Color.fromRGBO(202, 202, 202, 1)),
                           ),
                           keyboardType: TextInputType.text,
                         ),
