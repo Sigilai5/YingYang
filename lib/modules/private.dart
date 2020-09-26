@@ -126,46 +126,42 @@ class _DashboardState extends State<Private> {
                   ),
                 ],
               ),
-              Flexible(
-                flex: 2,
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minHeight: 35.0,
-                    maxHeight: 80.0,
-                  ),
-                  child: ListView(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      children: privateDataList.map((item) {
-                        return Card(
-                          child: Container(
-                            width: 230.0,
-                            child: Column(
-                              children: [
-                                ListTile(
-                                  title: Text(
-                                    '${item.name}',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Hexcolor('#4a4a4a')),
+              Container(
+                height: 80,
+                    child: ListView(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        children: privateDataList.map((item) {
+                          return Card(
+                            child: Container(
+                              width: 230.0,
+                              child: Column(
+                                children: [
+                                  ListTile(
+                                    title: Text(
+                                      '${item.name}',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Hexcolor('#4a4a4a')),
+                                    ),
+                                    subtitle: Text(
+                                      '${item.message}',
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(color: Hexcolor('#b5b5b5')),
+                                    ),
+                                    leading: Image.asset(
+                                      '${item.pic}',
+                                      height: 40,
+                                      width: 40,
+                                    ),
                                   ),
-                                  subtitle: Text(
-                                    '${item.message}',
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(color: Hexcolor('#b5b5b5')),
-                                  ),
-                                  leading: Image.asset(
-                                    '${item.pic}',
-                                    height: 40,
-                                    width: 40,
-                                  ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        );
-                      }).toList()),
-                ),
+                          );
+                        }).toList()),
+
+
               ),
               Row(
                 children: <Widget>[
