@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    final redColor = Color.fromRGBO(255, 11, 22, 1);
+    final redColor = Color.fromRGBO(255, 0, 0, 1);
     return Scaffold(
         appBar: AppBar(
           elevation: 10,
