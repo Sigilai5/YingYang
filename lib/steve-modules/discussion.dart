@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+//Run: Discussion()
+
 class DiscData {
   String discImage;
   String discTitle;
