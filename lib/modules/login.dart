@@ -92,8 +92,19 @@ class _LoginState extends State<Login> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(4.0),
-                    child: Image(
-                      image : AssetImage("assets/images/login/fb-xhdpi.png"), width: size.width*3/4,
+                    child: Stack(children: <Widget>[
+                      Image(
+                        image : AssetImage("assets/images/login/fb-xhdpi.png"), width: size.width*3/4,
+                      ),Text(
+                        "Sign Up with Facebook",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'Proxima',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[200],
+                        ),
+                      )
+                    ]
                     ),
                   ),
                   Center(
