@@ -65,8 +65,8 @@ flutter:
          - asset: assets/fonts/proxima-nova-soft.otf
            style: italic
      - family: Autumn
-         fonts:
-             - asset: assets/fonts/Autumn-in-November.ttf
+       fonts:
+         - asset: assets/fonts/Autumn-in-November.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
