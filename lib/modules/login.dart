@@ -1,6 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -13,10 +14,17 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var pi = 3.142;
+    TextStyle footer = Theme.of(context).textTheme.display1;
     return Scaffold(
         body: SafeArea(
           child : SingleChildScrollView(
             child: Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/background.png"),
+                      fit: BoxFit.cover
+                  )
+              ),
               padding: EdgeInsets.all(10.0),
               child: Center(
                 child: Column(
@@ -41,38 +49,68 @@ class _LoginState extends State<Login> {
                           fontSize: 20,
                           fontFamily: 'Proxima',
                           fontWeight: FontWeight.bold,
-                          color: Colors.grey[700],
+                          color: Colors.grey[100],
                         ),
                       ),
                     ),
-                    Transform.rotate(
-                      angle: 0.08,
-                      child: Container(
-                        padding: EdgeInsets.all(6.0),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
-                              bottomLeft: Radius.circular(10),
-                              bottomRight: Radius.circular(10)
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset: Offset(0, 3), // changes position of shadow
+                    Stack(
+                      children: <Widget>[
+                        Container(
+                          alignment: Alignment.center,
+                          child: Transform.rotate(
+                            angle: 0.04,
+                            child: Container(
+                              padding: EdgeInsets.all(4.0),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(10),
+                                    topRight: Radius.circular(10),
+                                    bottomLeft: Radius.circular(10),
+                                    bottomRight: Radius.circular(10)
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    spreadRadius: 5,
+                                    blurRadius: 7,
+                                    offset: Offset(0, 3), // changes position of shadow
+                                  ),
+                                ],
+                              ),
+                              child: Transform.rotate(
+                                  angle: -0.03,
+                                  child: Image(
+                                    image : AssetImage("assets/images/login/woman-sitting-and-smiling-1858175_copy-xxxhdpi.png"), width: size.width*3/4,
+                                  )
+                              ),
                             ),
-                          ],
+                          ),
                         ),
-                        child: Transform.rotate(
-                          angle: -0.03,
-                          child: Image(
-                            image : AssetImage("assets/images/login/woman-sitting-and-smiling-1858175_copy-xxxhdpi.png"), width: size.width*3/4,
-                          )
-                        ),
-                      ),
+                        Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.fromLTRB(20, 30, 20, 0),
+                          child: RichText(
+                            text: TextSpan(
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontFamily: 'Autumn',
+                              ),
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: "Its a ",
+                                ),
+                                TextSpan(
+                                  text: "Match",
+                                  style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                )
+                              ]
+                            )
+                          ),
+                        )
+                      ]
                     ),
                     Container(
                       padding: EdgeInsets.fromLTRB(30, 20.0, 30, 5.0),
@@ -144,6 +182,7 @@ class _LoginState extends State<Login> {
                               margin: EdgeInsets.all(4.0),
                               decoration: BoxDecoration(
                                 shape: BoxShape.rectangle,
+                                color: Colors.grey[100],
                                 border: Border.all(width: 2.0, color: Color.fromRGBO(66, 134, 245, 0.8)),
                                 borderRadius: BorderRadius.all(Radius.circular(3.0))
                               ),
@@ -168,7 +207,8 @@ class _LoginState extends State<Login> {
                                 decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
                                     border: Border.all(width: 2.0, color: Color.fromRGBO(255,0,0, 0.8)),
-                                    borderRadius: BorderRadius.all(Radius.circular(3.0))
+                                    borderRadius: BorderRadius.all(Radius.circular(3.0)),
+                                    color: Colors.grey[100],
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
@@ -187,9 +227,56 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     Container(
-                      child: Text(
-                          "By tapping Sign In, you agree to our"
-                      ),
+                      padding: EdgeInsets.fromLTRB(30, 10.0, 30, 10.0),
+                      alignment: Alignment.center,
+                      child: RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          style: TextStyle(
+                              color: Colors.grey[500],
+                          ),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: "By tapping LogIn you agree to our "
+                            ),
+                            TextSpan(
+                              text: "Terms of Service",
+                              style: TextStyle(
+                                  color: Color.fromRGBO(66, 134, 245, 1)
+                              ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () async{
+                                  // single tapped
+                                  final url = 'https://www.twitter.com';
+                                  if (await canLaunch(url)) {
+                                    await launch(url);
+                                  } else {
+                                    print('Unable to open URL $url');
+                                  }
+                                },
+                            ),
+                            TextSpan(
+                              text: " and "
+                            ),
+                            TextSpan(
+                              text: "Privacy Policy",
+                              style: TextStyle(
+                                  color: Color.fromRGBO(255,0,0, 1)
+                              ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () async{
+                                  // single tapped
+                                  final url = 'https://www.google.com';
+                                  if (await canLaunch(url)) {
+                                    await launch(url);
+                                  } else {
+                                    print('Unable to open URL $url');
+                                  }
+                                },
+                            )
+                          ]
+                        ),
+                      )
                     )
                   ],
                 ),
