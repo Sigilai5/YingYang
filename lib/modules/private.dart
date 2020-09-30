@@ -83,7 +83,9 @@ class _DashboardState extends State<Private> {
                 image: AssetImage("assets/images/background.png"),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.2), BlendMode.dstATop)),
+                    Colors.black.withOpacity(0.2), BlendMode.dstATop
+                )
+            ),
           ),
           child: Padding(
             padding:
