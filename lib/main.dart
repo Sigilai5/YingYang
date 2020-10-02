@@ -4,6 +4,7 @@ import 'modules/private.dart';
 import 'modules/group.dart';
 import 'package:app/modules/chat.dart';
 import 'package:app/modules/home.dart';
+import 'package:app/modules/profile-add-edit.dart';
 
 void main() => runApp(MyApp());
 
