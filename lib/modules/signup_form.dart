@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
-// Run : SignUp()
+import 'package:flutter/painting.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SignUp extends StatefulWidget {
   _SignUpState createState() => _SignUpState();
@@ -26,7 +27,7 @@ class _SignUpState extends State<SignUp> {
                 ),
               ],
               image: DecorationImage(
-                fit: BoxFit.scaleDown,
+                fit: BoxFit.cover,
                 image: AssetImage('assets/images/background1.png'),
               )),
           child: ListView(
@@ -49,16 +50,18 @@ class _Logo extends State<Logo> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
 
     return Container(
       width: width,
-      height: 100,
+      height: 110,
       margin: EdgeInsets.only(
-        top: 70,
-        bottom: 0,
+        top: 50,
+        bottom: 10,
       ),
       padding: EdgeInsets.all(0),
       child: Container(
+        padding: EdgeInsets.only(left: 10),
         child: Column(
           children: [
             Container(
@@ -80,22 +83,28 @@ class _Logo extends State<Logo> {
                   )),
             ),
             Container(
-              margin: EdgeInsets.only(left: 135),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('Yin',
-                      style: TextStyle(
-                        color: Color(0xffff0000),
-                        fontSize: 35,
-                        fontWeight: FontWeight.w900,
-                      )),
-                  SizedBox(width: 15),
-                  Text('Yang',
-                      style: TextStyle(
-                        color: Color(0xff1565D3),
-                        fontSize: 35,
-                        fontWeight: FontWeight.w900,
-                      )),
+                  Padding(
+                    padding: EdgeInsets.only(left: 1),
+                    child: Text('Yin',
+                        style: TextStyle(
+                          color: Color(0xffff0000),
+                          fontSize: 35,
+                          fontWeight: FontWeight.w900,
+                        )),
+                  ),
+                  SizedBox(width: 10),
+                  Padding(
+                    padding: EdgeInsets.all(5),
+                    child: Text('Yang',
+                        style: TextStyle(
+                          color: Color(0xff1565D3),
+                          fontSize: 35,
+                          fontWeight: FontWeight.w900,
+                        )),
+                  ),
                 ],
               ),
             ),
@@ -118,6 +127,8 @@ class _AccountFormState extends State<AccountForm> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+
     final fullNameField = TextField(
         obscureText: false,
         style: tstyle,
@@ -163,17 +174,23 @@ class _AccountFormState extends State<AccountForm> {
                 OutlineInputBorder(borderRadius: BorderRadius.circular(2.0))));
 
     return Container(
-      padding: EdgeInsets.only(top: 10, left: 70, right: 70),
+      padding: EdgeInsets.only(
+        top: 10,
+        bottom: 10,
+        left: width / 6,
+        right: width / 6,
+      ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-              margin: EdgeInsets.only(bottom: 10),
+              margin: EdgeInsets.only(bottom: 30),
               child: Text("Create an Account",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 25,
+                    fontSize: 22,
                   ))),
-          SizedBox(height: 20),
+          SizedBox(height: 5),
           fullNameField,
           SizedBox(height: 10),
           emailField,
@@ -183,7 +200,7 @@ class _AccountFormState extends State<AccountForm> {
           confirmPasswordField,
           SizedBox(height: 20),
           Container(
-            width: 280,
+            width: 400,
             height: 50,
             child: RaisedButton(
               onPressed: () {},
@@ -193,52 +210,40 @@ class _AccountFormState extends State<AccountForm> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 30, left: 0),
-            height: 15,
-            child: Row(children: [
-              Text("By tapping Log in, you agree with our",
-                  style: TextStyle(
-                    fontSize: 11,
-                  )),
-              RawMaterialButton(
-                constraints: BoxConstraints(minWidth: 55),
-                onPressed: () {},
-                child: Text("Terms of ",
-                    style: TextStyle(color: Colors.blue, fontSize: 11)),
-              ),
-            ]),
-          ),
-          Container(
-            height: 15,
-            padding: EdgeInsets.only(top: 1, left: 20),
-            margin: EdgeInsets.only(bottom: 1),
-            child: Row(
-              children: [
-                RawMaterialButton(
-                    onPressed: () {},
-                    constraints: BoxConstraints(minWidth: 10),
-                    child: Text(
-                      "Service",
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 13,
-                      ),
-                    )),
-                Text("and", style: TextStyle(fontSize: 11)),
-                RawMaterialButton(
-                  constraints: BoxConstraints(minWidth: 23),
-                  onPressed: () {},
-                  child: Text("  Privacy Policy",
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: Colors.red,
-                      )),
+            padding: EdgeInsets.only(top: 20),
+            child: RichText(
+                text: TextSpan(
+              style: TextStyle(fontSize: 12),
+              children: <TextSpan>[
+                TextSpan(
+                  text: "By tapping Log in you agree with our ",
+                  style: TextStyle(color: Colors.black),
+                ),
+                TextSpan(
+                  text: "Terms of Service",
+                  style: TextStyle(color: Colors.blue),
+                  recognizer: TapGestureRecognizer()..onTap = _urlLauncher,
+                ),
+                TextSpan(text: " and ", style: TextStyle(color: Colors.black)),
+                TextSpan(
+                  text: " Privacy Policy.",
+                  style: TextStyle(color: Colors.red),
+                  recognizer: TapGestureRecognizer()..onTap = _urlLauncher,
                 ),
               ],
-            ),
+            )),
           ),
         ],
       ),
     );
+  }
+
+  _urlLauncher() async {
+    var lurl = 'https://www.google.com/';
+    if (await canLaunch(lurl)) {
+      await launch(lurl);
+    } else {
+      throw ("Unable to open URL $lurl");
+    }
   }
 }

@@ -62,9 +62,7 @@ class _DashboardState extends State<Group> {
                   ),
                 ),
               ),
-              SizedBox(width: 10.0),
               VerticalDivider(),
-              SizedBox(width: 10.0),
               Text(
                 "Groups",
                 style: TextStyle(
@@ -105,7 +103,7 @@ class _DashboardState extends State<Group> {
                 ),
                 Row(
                   children: <Widget>[
-                    Flexible(
+                    Expanded(
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: FittedBox(
@@ -137,109 +135,47 @@ class _DashboardState extends State<Group> {
                     ),
                   ],
                 ),
-                Flexible(
-                  child: ListView(
-                      children: groupDataList.map((item) {
-                    return Card(
-                      child: Container(
-                        width: 230.0,
-                        child: Column(
-                          children: [
-                            ListTile(
-                              title: Text(
-                                '${item.name}',
-                                style: TextStyle(
+                Expanded(
+                  child: Container(
+                    child: ListView(
+                        children: groupDataList.map((item) {
+                      return Card(
+                        child: Container(
+                          width: 230.0,
+                          child: Column(
+                            children: [
+                              ListTile(
+                                title: Text(
+                                  '${item.name}',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Hexcolor('#4a4a4a')),
+                                ),
+                                subtitle: Text(
+                                  '${item.message}',
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(color: Hexcolor('#b5b5b5')),
+                                ),
+                                leading: Image.asset(
+                                  '${item.pic}',
+                                  height: 40,
+                                  width: 40,
+                                ),
+                                trailing: Text(
+                                  '(${item.members} members)',
+                                  style: TextStyle(
+                                    color: Hexcolor('#ff0000'),
                                     fontWeight: FontWeight.bold,
-                                    color: Hexcolor('#4a4a4a')),
-                              ),
-                              subtitle: Text(
-                                '${item.message}',
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(color: Hexcolor('#b5b5b5')),
-                              ),
-                              leading: Image.asset(
-                                '${item.pic}',
-                                height: 40,
-                                width: 40,
-                              ),
-                              trailing: Text(
-                                '(${item.members} members)',
-                                style: TextStyle(
-                                  color: Hexcolor('#ff0000'),
-                                  fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  }).toList()),
-                ),
-//                Row(
-//                  children: <Widget>[
-//                    Padding(
-//                      padding: const EdgeInsets.all(10.0),
-//                      child: Text(
-//                        'Your Groups(${groupDataList.length})',
-//                        style: TextStyle(
-//                          fontSize: 20,
-//                          fontFamily: 'Arial',
-//                          fontWeight: FontWeight.bold,
-//                          color: Hexcolor('#ff0000'),
-//                        ),
-//                      ),
-//                    ),
-//                  ],
-//                ),
-//                Container(
-//                  height: 85,
-//                  child: Column(
-//                    children: [
-//                      Expanded(
-//                        child: Container(
-//                          child: ListView(
-//                              children: groupDataList.map((item) {
-//                                return Card(
-//                                  child: Container(
-//                                    width: 230.0,
-//                                    child: Column(
-//                                      children: [
-//                                        ListTile(
-//                                          title: Text(
-//                                            '${item.name}',
-//                                            style: TextStyle(
-//                                                fontWeight: FontWeight.bold,
-//                                                color: Hexcolor('#4a4a4a')),
-//                                          ),
-//                                          subtitle: Text(
-//                                            '${item.message}',
-//                                            overflow: TextOverflow.ellipsis,
-//                                            style: TextStyle(color: Hexcolor('#b5b5b5')),
-//                                          ),
-//                                          leading: Image.asset(
-//                                            '${item.pic}',
-//                                            height: 40,
-//                                            width: 40,
-//                                          ),
-//                                          trailing: Text(
-//                                            '(${item.members} members)',
-//                                            style: TextStyle(
-//                                              color: Hexcolor('#ff0000'),
-//                                              fontWeight: FontWeight.bold,
-//                                            ),
-//                                          ),
-//                                        ),
-//                                      ],
-//                                    ),
-//                                  ),
-//                                );
-//                              }).toList()),
-//                        ),
-//                      ),
-//                    ],
-//                  ),
-//                )
+                      );
+                    }).toList()),
+                  ),
+                )
               ],
             ),
           ),

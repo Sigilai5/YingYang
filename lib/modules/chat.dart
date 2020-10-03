@@ -57,9 +57,7 @@ class _ChatPageState extends State<ChatPage> {
           blurRadius: 4.0,
           color: Color.fromRGBO(255, 255, 255, 1),
         ),
-      ]
-      // FIXME fontFamily: "Foo"
-      );
+      ]);
   final OutlineInputBorder chatTextFieldBorder = const OutlineInputBorder(
     borderSide: const BorderSide(color: Colors.white, width: 0.0),
   );
@@ -252,8 +250,11 @@ class _ChatPageState extends State<ChatPage> {
                                             )
                                           ],
                                         ),
-                                      ));
-                                }).toList())),
+                                      )
+                                  );
+                                }).toList()
+                            )
+                        ),
                         SizedBox(
                           height: 10,
                         ),

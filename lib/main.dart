@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
-import 'modules/private.dart';
-import 'modules/group.dart';
 import 'package:app/modules/chat.dart';
 import 'package:app/modules/home.dart';
+import 'package:app/modules/login.dart';
+import 'package:flutter/material.dart';
+
+import 'modules/group.dart';
+import 'modules/private.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,7 +20,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => Private(),
+        '/': (context) => Login(),
+        '/login': (context) => Login(),
         '/private': (context) => Private(),
         '/home': (context) => MyHomePage(),
         '/chat': (context) => ChatPage(),

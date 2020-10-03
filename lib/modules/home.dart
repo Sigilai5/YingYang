@@ -62,7 +62,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           leading: new IconButton(
-            icon: new Icon(Icons.menu),
+            icon: Image(
+              image: AssetImage("assets/images/menu-bar.png"),
+              width: 30,
+            ),
             color: Color.fromRGBO(220, 220, 220, 1),
             onPressed: () {},
           ),
@@ -78,12 +81,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: SafeArea(
             child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/background.png"),
-              fit: BoxFit.fill,
-            ),
-          ),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/background.png"),
+                    fit: BoxFit.fill,
+                  ),
+                ),
           child: ListView(
             children: homeDataList.map((item) {
               return Container(
@@ -131,11 +134,10 @@ class _MyHomePageState extends State<MyHomePage> {
                           color: Color.fromRGBO(255, 255, 255, 0.6),
                           height: 40,
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
                                   Container(
                                     margin: EdgeInsets.fromLTRB(5, 0, 5, 0),

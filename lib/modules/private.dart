@@ -49,35 +49,30 @@ class _DashboardState extends State<Private> {
         resizeToAvoidBottomPadding: false,
         appBar: AppBar(
             title: IntrinsicHeight(
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "Private",
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "Private",
+                style: TextStyle(
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              VerticalDivider(),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, "/group");
+                },
+                child: Text(
+                  "Groups",
                   style: TextStyle(
-                    color: Colors.red,
+                    color: Colors.grey,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(width: 10.0),
-                VerticalDivider(),
-                SizedBox(width: 10.0),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, "/group");
-                  },
-                  child: Text(
-                    "Groups",
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         )),
         body: Container(
@@ -88,11 +83,13 @@ class _DashboardState extends State<Private> {
                 image: AssetImage("assets/images/background.png"),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.2), BlendMode.dstATop)),
+                    Colors.black.withOpacity(0.2), BlendMode.dstATop
+                )
+            ),
           ),
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 12, right: 12, top: 12, bottom: 0),
+                const EdgeInsets.only(left: 8, right: 12, top: 12, bottom: 12),
             child: Column(children: <Widget>[
               TextFormField(
                 decoration: InputDecoration(
@@ -127,41 +124,48 @@ class _DashboardState extends State<Private> {
                 ],
               ),
               Container(
-                height: 80,
-                    child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        children: privateDataList.map((item) {
-                          return Card(
-                            child: Container(
-                              width: 230.0,
-                              child: Column(
-                                children: [
-                                  ListTile(
-                                    title: Text(
-                                      '${item.name}',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Hexcolor('#4a4a4a')),
-                                    ),
-                                    subtitle: Text(
-                                      '${item.message}',
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(color: Hexcolor('#b5b5b5')),
-                                    ),
-                                    leading: Image.asset(
-                                      '${item.pic}',
-                                      height: 40,
-                                      width: 40,
-                                    ),
+                height: 85,
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        child: ListView(
+                            // This next line does the trick.
+                            scrollDirection: Axis.horizontal,
+                            children: privateDataList.map((item) {
+                              return Card(
+                                child: Container(
+                                  width: 230.0,
+                                  child: Column(
+                                    children: [
+                                      ListTile(
+                                        title: Text(
+                                          '${item.name}',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Hexcolor('#4a4a4a')),
+                                        ),
+                                        subtitle: Text(
+                                          '${item.message}',
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              color: Hexcolor('#b5b5b5')),
+                                        ),
+                                        leading: Image.asset(
+                                          '${item.pic}',
+                                          height: 40,
+                                          width: 40,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
-                            ),
-                          );
-                        }).toList()),
-
-
+                                ),
+                              );
+                            }).toList()),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Row(
                 children: <Widget>[
@@ -179,8 +183,7 @@ class _DashboardState extends State<Private> {
                   ),
                 ],
               ),
-              Flexible(
-                flex: 4,
+              Expanded(
                 child: Container(
                   child: ListView(
                       children: privateDataList.map((item) {
@@ -213,7 +216,7 @@ class _DashboardState extends State<Private> {
                     );
                   }).toList()),
                 ),
-              ),
+              )
             ]),
           ),
         ),

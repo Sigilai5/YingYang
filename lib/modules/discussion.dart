@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-//Run: Discussion()
-
 class DiscData {
   String discImage;
   String discTitle;
@@ -32,7 +30,7 @@ class _DiscussionState extends State<Discussion> {
 
     List<DiscData> discDataList = [
       DiscData(
-        discImage: "assets/images/Layer_1.png",
+        discImage: "assets/images/1-2.png",
         discTitle: "Singles Groups - Amsterdam",
         discText:
             "Here people are joining groups to discuss their issues with random people. Creator of group can make it public of private.",
@@ -40,7 +38,7 @@ class _DiscussionState extends State<Discussion> {
         discMembers: "3800",
       ),
       DiscData(
-        discImage: "assets/images/Layer_1.png",
+        discImage: "assets/images/1-2.png",
         discTitle: "Second: Singles Group - Amsterdam",
         discText:
             "Here people are joining groups to discuss their issues with random people. Creator of group can make it public of private.",
@@ -48,7 +46,7 @@ class _DiscussionState extends State<Discussion> {
         discMembers: "3800",
       ),
       DiscData(
-        discImage: "assets/images/Layer_1.png",
+        discImage: "assets/images/1-2.png",
         discTitle: "Third: Singles Groups - Amsterdam",
         discText:
             "Here people are joining groups to discuss their issues with random people. Creators of group can make it public of private.",
@@ -115,10 +113,11 @@ class TopTrend extends StatefulWidget {
 class _TopTrendState extends State<TopTrend> {
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return Container(
       alignment: Alignment.topLeft,
-      margin: EdgeInsets.fromLTRB(0, 0, 180, 0),
-      padding: EdgeInsets.fromLTRB(3, 10, 0, 0),
+      padding: EdgeInsets.fromLTRB(3, 20, 0, 0),
       child: RaisedButton(
         color: Color(0xFFFF0000),
         onPressed: () {},
@@ -154,20 +153,22 @@ class _ProfilePic extends State<ProfilePic> {
   @override
   build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.width;
     var data = widget.discData;
 
     return Container(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           Stack(children: <Widget>[
             Container(
-              height: 180,
-              width: width,
-              margin: EdgeInsets.only(top: 5.0, left: 5.0, right: 5.0),
+              height: 200,
+              width: 400,
+              margin: EdgeInsets.only(top: 2, left: 5.0, right: 5.0),
               decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.8),
+                      color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 1,
                       blurRadius: 1,
                       offset: Offset(0, 1),
@@ -179,7 +180,7 @@ class _ProfilePic extends State<ProfilePic> {
                   )),
             ),
             Positioned(
-              top: 20,
+              top: 30,
               left: 310,
               child: Container(
                 alignment: Alignment.topRight,
@@ -209,49 +210,54 @@ class _ProfilePic extends State<ProfilePic> {
               ),
             ),
             Positioned(
-              left: 332,
-              top: 165,
-              child: Row(
-                children: <Widget>[
-                  ClipOval(
-                    child: Material(
-                      color: Colors.white.withOpacity(.8),
-                      child: InkWell(
-                        child: SizedBox(
-                          width: 12,
-                          height: 12,
+              top: 175,
+              left: 330,
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: Row(
+                  //crossAxisAlignment: CrossAxisAlignment.end,
+                  //crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    ClipOval(
+                      child: Material(
+                        color: Colors.grey.withOpacity(.8),
+                        child: InkWell(
+                          child: SizedBox(
+                            width: 12,
+                            height: 12,
+                          ),
+                          onTap: () {},
                         ),
-                        onTap: () {},
                       ),
                     ),
-                  ),
-                  SizedBox(width: 8),
-                  ClipOval(
-                    child: Material(
-                      color: Colors.white.withOpacity(.65),
-                      child: InkWell(
-                        child: SizedBox(
-                          width: 12,
-                          height: 12,
+                    SizedBox(width: 8),
+                    ClipOval(
+                      child: Material(
+                        color: Colors.white.withOpacity(.65),
+                        child: InkWell(
+                          child: SizedBox(
+                            width: 12,
+                            height: 12,
+                          ),
+                          onTap: () {},
                         ),
-                        onTap: () {},
                       ),
                     ),
-                  ),
-                  SizedBox(width: 8),
-                  ClipOval(
-                    child: Material(
-                      color: Colors.white.withOpacity(0.65),
-                      child: InkWell(
-                        child: SizedBox(
-                          width: 12,
-                          height: 12,
+                    SizedBox(width: 8),
+                    ClipOval(
+                      child: Material(
+                        color: Colors.white.withOpacity(0.65),
+                        child: InkWell(
+                          child: SizedBox(
+                            width: 12,
+                            height: 12,
+                          ),
+                          onTap: () {},
                         ),
-                        onTap: () {},
                       ),
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
           ]),
