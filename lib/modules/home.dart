@@ -108,12 +108,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: SafeArea(
             child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/background.png"),
-              fit: BoxFit.fill,
-            ),
-          ),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/background.png"),
+                    fit: BoxFit.fill,
+                  ),
+                ),
           child: ListView(
             children: homeDataList.map((item) {
               return Container(

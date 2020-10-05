@@ -1,8 +1,10 @@
+import 'package:app/modules/login.dart';
 import 'package:flutter/material.dart';
 import 'modules/private.dart';
 import 'modules/group.dart';
 import 'package:app/modules/chat.dart';
 import 'package:app/modules/home.dart';
+import 'package:app/modules/profile-add-edit.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,7 +20,12 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       initialRoute: '/',
       routes: {
+<<<<<<< HEAD
         '/': (context) => ChatPage(),
+=======
+        '/': (context) => Login(),
+        '/login': (context) => Login(),
+>>>>>>> 7802ae87c48fcb2b9d1e93c89deda934b524fcb5
         '/private': (context) => Private(),
         '/home': (context) => MyHomePage(),
         '/chat': (context) => ChatPage(),
