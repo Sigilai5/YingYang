@@ -1,4 +1,7 @@
+import 'package:app/modules/editprofile.dart';
+import 'package:app/modules/letsbegin.dart';
 import 'package:app/modules/login.dart';
+import 'package:app/modules/swipe.dart';
 import 'package:flutter/material.dart';
 import 'modules/private.dart';
 import 'modules/group.dart';
@@ -19,12 +22,15 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => Login(),
+        '/': (context) => EditProfile(),
+        '/editprofile': (context) => EditProfile(),
         '/login': (context) => Login(),
+        '/letsbegin': (context) => LetsBegin(),
         '/private': (context) => Private(),
         '/home': (context) => MyHomePage(),
         '/chat': (context) => ChatPage(),
         '/group': (context) => Group(),
+        '/swipe': (context) => Swipe(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(

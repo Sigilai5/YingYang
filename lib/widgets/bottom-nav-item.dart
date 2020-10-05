@@ -17,7 +17,7 @@ class _BottomNavState extends State<BottomNav> {
       children: <Widget>[
         BuildNavItem(Image.asset("assets/images/Home-xxhdpi.png"), 0),
         BuildNavItem(Image.asset("assets/images/Fire-xxxhdpi.png"), 1),
-        BuildNavItem(Image.asset("assets/images/Yin-Yan-xxxhdpi.png"), 2),
+        BuildNavItem(Image.asset("assets/images/imageicons/Yin-Yan.png"), 2),
         BuildNavItem(Image.asset("assets/images/Target-xxxhdpi.png"), 3),
         BuildNavItem(Image.asset("assets/images/Profile_Icon-xxxhdpi.png"), 4)
       ],

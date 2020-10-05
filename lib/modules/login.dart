@@ -234,6 +234,7 @@ class _LoginState extends State<Login> {
                         text: TextSpan(
                           style: TextStyle(
                               color: Colors.grey[500],
+                            fontFamily: "Proxima"
                           ),
                           children: <TextSpan>[
                             TextSpan(
