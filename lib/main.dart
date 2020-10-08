@@ -1,10 +1,12 @@
+import 'package:app/modules/discussion.dart';
 import 'package:app/modules/editprofile.dart';
 import 'package:app/modules/letsbegin.dart';
 import 'package:app/modules/login.dart';
+import 'package:app/modules/signup_form.dart';
 import 'package:app/modules/swipe.dart';
 import 'package:flutter/material.dart';
-import 'modules/private.dart';
-import 'modules/group.dart';
+import 'package:app/modules/private.dart';
+import 'package:app/modules/group.dart';
 import 'package:app/modules/chat.dart';
 import 'package:app/modules/home.dart';
 
@@ -22,9 +24,11 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => EditProfile(),
+        '/': (context) => SignUp(),
         '/editprofile': (context) => EditProfile(),
         '/login': (context) => Login(),
+        '/discussion' : (context) => Discussion(),
+        '/signupform' : (context) => SignUp(),
         '/letsbegin': (context) => LetsBegin(),
         '/private': (context) => Private(),
         '/home': (context) => MyHomePage(),
