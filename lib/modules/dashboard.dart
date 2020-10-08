@@ -22,7 +22,7 @@ class _DashboardState extends State<Dashboard> {
           )
         ],
       ),
-      bottomNavigationBar: BottomNav()
+      bottomNavigationBar: BottomNav(1)
     );
   }
 }

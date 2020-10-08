@@ -267,14 +267,19 @@ class _LetsBeginState extends State<LetsBegin> {
                     onPressed: () {},
                     padding: EdgeInsets.fromLTRB(mediaQuery.size.width/6, 12, mediaQuery.size.width/6, 12),
                     color: Colors.white,
-                    child: const Text(
-                        'LET\'S BEGIN',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'Proxima',
-                          fontWeight: FontWeight.w600,
-                          color: Colors.deepOrange
-                        ),
+                    child: InkWell(
+                      onTap: (){
+                        Navigator.pushNamed(context, "/home");
+                      },
+                      child: const Text(
+                          'LET\'S BEGIN',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'Proxima',
+                            fontWeight: FontWeight.w600,
+                            color: Colors.deepOrange
+                          ),
+                      ),
                     ),
                   )
                 ],

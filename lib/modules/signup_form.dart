@@ -206,7 +206,12 @@ class _AccountFormState extends State<AccountForm> {
               onPressed: () {},
               color: Colors.blue,
               textColor: Colors.white,
-              child: Text("CONTINUE"),
+              child: InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, "/letsbegin");
+                  },
+                  child: Text("CONTINUE")
+              ),
             ),
           ),
           Container(

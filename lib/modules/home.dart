@@ -74,9 +74,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             child: new IconButton(
-              icon: Image(
-                image: AssetImage("assets/images/menu-bar.png"),
-                width: 30,
+              icon: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, "/discussion");
+                },
+                child: Image(
+                  image: AssetImage("assets/images/menu-bar.png"),
+                  width: 30,
+                ),
               ),
               color: Color.fromRGBO(220, 220, 220, 1),
               onPressed: () {},
@@ -99,9 +104,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               height: 50,
               width: 40,
-              child: Icon(
-                Icons.search,
-                color: Color.fromRGBO(220, 220, 220, 1),
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, "/swipe");
+                },
+                child: Icon(
+                  Icons.search,
+                  color: Color.fromRGBO(220, 220, 220, 1),
+                ),
               ),
             ),
           ],

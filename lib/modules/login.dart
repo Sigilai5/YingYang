@@ -191,13 +191,18 @@ class _LoginState extends State<Login> {
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(10.0),
-                                child: Text(
-                                  "Sign In",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontFamily: 'Proxima',
-                                    fontWeight: FontWeight.w600,
-                                    color: Color.fromRGBO(66, 134, 245, 0.8),
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.pushNamed(context, "/home");
+                                  },
+                                  child: Text(
+                                    "Sign In",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontFamily: 'Proxima',
+                                      fontWeight: FontWeight.w600,
+                                      color: Color.fromRGBO(66, 134, 245, 0.8),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -217,7 +222,7 @@ class _LoginState extends State<Login> {
                                   padding: const EdgeInsets.all(10.0),
                                   child: InkWell(
                                     onTap: () {
-                                      Navigator.pushNamed(context, "/signup");
+                                      Navigator.pushNamed(context, "/signupform");
                                     },
                                     child: Text(
                                       "Sign Up",

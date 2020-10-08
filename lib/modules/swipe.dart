@@ -141,7 +141,7 @@ class _SwipeState extends State<Swipe> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNav(),
+      bottomNavigationBar: BottomNav(2),
     );
   }
 
