@@ -20,12 +20,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-<<<<<<< HEAD
-        '/': (context) => ChatPage(),
-=======
-        '/': (context) => Login(),
+        '/': (context) => AddEditProfile(),
         '/login': (context) => Login(),
->>>>>>> 7802ae87c48fcb2b9d1e93c89deda934b524fcb5
         '/private': (context) => Private(),
         '/home': (context) => MyHomePage(),
         '/chat': (context) => ChatPage(),
