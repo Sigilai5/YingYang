@@ -9,6 +9,7 @@ import 'package:app/modules/private.dart';
 import 'package:app/modules/group.dart';
 import 'package:app/modules/chat.dart';
 import 'package:app/modules/home.dart';
+import 'package:app/modules/profile-add-edit.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,7 +25,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => SignUp(),
+        '/': (context) => Login(),
         '/editprofile': (context) => EditProfile(),
         '/login': (context) => Login(),
         '/discussion' : (context) => Discussion(),
