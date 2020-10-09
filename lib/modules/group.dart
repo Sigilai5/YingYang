@@ -180,7 +180,7 @@ class _DashboardState extends State<Group> {
             ),
           ),
         ),
-        bottomNavigationBar: BottomNav(),
+        bottomNavigationBar: BottomNav(3),
       ),
     );
   }

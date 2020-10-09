@@ -22,8 +22,11 @@ class _LoginState extends State<Login> {
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("assets/images/background.png"),
-                      fit: BoxFit.cover
-                  )
+                      fit: BoxFit.cover,
+                      colorFilter: ColorFilter.mode(
+                        Colors.white.withOpacity(0.7), BlendMode.dstATop
+                      )
+                  ),
               ),
               padding: EdgeInsets.all(10.0),
               child: Center(
@@ -46,9 +49,9 @@ class _LoginState extends State<Login> {
                       child: Text(
                         "It Takes 2 To Tango",
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 28,
                           fontFamily: 'Proxima',
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.normal,
                           color: Colors.grey[100],
                         ),
                       ),
@@ -101,7 +104,7 @@ class _LoginState extends State<Login> {
                                   text: "Its a ",
                                 ),
                                 TextSpan(
-                                  text: "Match",
+                                  text: "Match !",
                                   style: TextStyle(
                                     decoration: TextDecoration.underline,
                                   ),
@@ -188,13 +191,18 @@ class _LoginState extends State<Login> {
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(10.0),
-                                child: Text(
-                                  "Sign In",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontFamily: 'Proxima',
-                                    fontWeight: FontWeight.w600,
-                                    color: Color.fromRGBO(66, 134, 245, 0.8),
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.pushNamed(context, "/home");
+                                  },
+                                  child: Text(
+                                    "Sign In",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontFamily: 'Proxima',
+                                      fontWeight: FontWeight.w600,
+                                      color: Color.fromRGBO(66, 134, 245, 0.8),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -212,14 +220,19 @@ class _LoginState extends State<Login> {
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
-                                  child: Text(
-                                    "Sign Up",
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontFamily: 'Proxima',
-                                        fontWeight: FontWeight.w600,
-                                        color: Color.fromRGBO(255,0,0, 0.8),
-                                      ),
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(context, "/signupform");
+                                    },
+                                    child: Text(
+                                      "Sign Up",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontFamily: 'Proxima',
+                                          fontWeight: FontWeight.w600,
+                                          color: Color.fromRGBO(255,0,0, 0.8),
+                                        ),
+                                    ),
                                   ),
                                 )),
                           )
@@ -234,6 +247,7 @@ class _LoginState extends State<Login> {
                         text: TextSpan(
                           style: TextStyle(
                               color: Colors.grey[500],
+                            fontFamily: "Proxima"
                           ),
                           children: <TextSpan>[
                             TextSpan(
@@ -242,6 +256,7 @@ class _LoginState extends State<Login> {
                             TextSpan(
                               text: "Terms of Service",
                               style: TextStyle(
+                                  decoration: TextDecoration.underline,
                                   color: Color.fromRGBO(66, 134, 245, 1)
                               ),
                               recognizer: TapGestureRecognizer()
@@ -261,6 +276,7 @@ class _LoginState extends State<Login> {
                             TextSpan(
                               text: "Privacy Policy",
                               style: TextStyle(
+                                  decoration: TextDecoration.underline,
                                   color: Color.fromRGBO(255,0,0, 1)
                               ),
                               recognizer: TapGestureRecognizer()

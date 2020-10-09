@@ -37,7 +37,7 @@ class _ChatPageState extends State<ChatPage> {
       fontWeight: FontWeight.bold,
       fontFamily: "Proxima");
   final TextStyle smallerTextStyle = TextStyle(
-    color: Color.fromRGBO(150, 150, 150, 1),
+    color: Color.fromRGBO(181, 181, 181, 1),
     fontFamily: "Proxima",
   );
   final TextStyle chatTextWithShadow = TextStyle(
@@ -65,7 +65,10 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    final redColor = Color.fromRGBO(255, 11, 22, 1);
+    final redColor = Color.fromRGBO(255, 1, 31, 1);
+    var size = MediaQuery.of(context).size;
+    final double itemWidth = size.width / 2;
+
     return Scaffold(
         appBar: AppBar(
           elevation: 10,
@@ -78,15 +81,33 @@ class _ChatPageState extends State<ChatPage> {
               color: redColor,
             ),
           ),
-          leading: new IconButton(
-            icon: new Icon(Icons.menu),
-            color: Color.fromRGBO(220, 220, 220, 1),
-            onPressed: () {},
+          leading: Container(
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(50),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 7,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+              ],
+            ),
+            child: new IconButton(
+              icon: Image(
+                image: AssetImage("assets/images/menu-bar.png"),
+                width: 30,
+              ),
+              color: Color.fromRGBO(220, 220, 220, 1),
+              onPressed: () {},
+            ),
           ),
         ),
         body: SafeArea(
             child: Container(
-          height: MediaQuery.of(context).size.height,
+          //height: MediaQuery.of(context).size.height,
           width: width,
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -114,9 +135,9 @@ class _ChatPageState extends State<ChatPage> {
                     Container(
                       padding: EdgeInsets.fromLTRB(20, 0, 20, 5),
                       child: Text(
-                        "Excepteur sing occaecat cupidatat non proident, sunt in cuipa qui official deserunt.",
-                        style: TextStyle(color: chatGrey),
-                      ),
+                          "Excepteur sing occaecat cupidatat non proident, sunt in cuipa qui official deserunt.",
+                          style: TextStyle(
+                              color: Color.fromRGBO(137, 137, 137, 1))),
                     ),
                     Container(
                       child: Padding(
@@ -130,7 +151,8 @@ class _ChatPageState extends State<ChatPage> {
                             fillColor: Colors.white,
                             filled: true,
                             hintText: "Group Name...",
-                            hintStyle: TextStyle(color: chatGrey),
+                            hintStyle: TextStyle(
+                                color: Color.fromRGBO(202, 202, 202, 1)),
                           ),
                           keyboardType: TextInputType.text,
                         ),
@@ -213,48 +235,50 @@ class _ChatPageState extends State<ChatPage> {
                           ],
                         ),
                         Container(
-                            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                            child: Wrap(
-                                direction: Axis.horizontal,
-                                //alignment: WrapAlignment.end,
+                            child: GridView.count(
+                                //crossAxisSpacing: 10,
+                                //mainAxisSpacing: 10,
+                                childAspectRatio: (itemWidth / 80),
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                crossAxisCount: 2,
+                                controller: new ScrollController(
+                                    keepScrollOffset: false),
                                 children: chatDataList.map((item) {
-                                  return Container(
-                                      width: 185,
-                                      child: Card(
-                                        child: Row(
+                                  return Card(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: Image(
+                                            image: AssetImage("${item.pic}"),
+                                            width: 50,
+                                          ),
+                                        ),
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                           children: <Widget>[
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Image(
-                                                image:
-                                                    AssetImage("${item.pic}"),
-                                                width: 50,
+                                            Container(
+                                              child: Text(
+                                                "${item.names}",
+                                                style: largerTextStyle,
                                               ),
                                             ),
-                                            Column(
-                                              children: <Widget>[
-                                                Container(
-                                                  child: Text(
-                                                    "${item.names}",
-                                                    style: largerTextStyle,
-                                                  ),
-                                                ),
-                                                Container(
-                                                  child: Text(
-                                                    "${item.location}",
-                                                    style: smallerTextStyle,
-                                                  ),
-                                                ),
-                                              ],
-                                            )
+                                            Container(
+                                              child: Text(
+                                                "${item.location}",
+                                                style: smallerTextStyle,
+                                              ),
+                                            ),
                                           ],
-                                        ),
-                                      )
+                                        )
+                                      ],
+                                    ),
                                   );
-                                }).toList()
-                            )
-                        ),
+                                }).toList())),
                         SizedBox(
                           height: 10,
                         ),
@@ -262,7 +286,8 @@ class _ChatPageState extends State<ChatPage> {
                           mainAxisSize: MainAxisSize.max,
                           children: <Widget>[
                             Container(
-                              width: width / 2,
+                              margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                              width: width / 2.5,
                               child: Card(
                                 child: IconButton(
                                     iconSize: 30,
@@ -278,7 +303,7 @@ class _ChatPageState extends State<ChatPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 30,
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
@@ -293,6 +318,9 @@ class _ChatPageState extends State<ChatPage> {
                           color: Colors.white,
                         ),
                       )),
+                ),
+                SizedBox(
+                  height: 50,
                 )
               ],
             ),

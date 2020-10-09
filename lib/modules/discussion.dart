@@ -38,7 +38,7 @@ class _DiscussionState extends State<Discussion> {
         discMembers: "3800",
       ),
       DiscData(
-        discImage: "assets/images/1-2.png",
+        discImage: "assets/images/2-2.png",
         discTitle: "Second: Singles Group - Amsterdam",
         discText:
             "Here people are joining groups to discuss their issues with random people. Creator of group can make it public of private.",
@@ -62,21 +62,63 @@ class _DiscussionState extends State<Discussion> {
         title: Text(
           "Public Discussion",
           style: TextStyle(
-            fontFamily: "Proxima",
-            color: Colors.red,
+              fontFamily: "Proxima",
+              color: Color(0xffff0000),
+              fontWeight: FontWeight.w800),
+        ),
+        leading: Container(
+          margin: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(50),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 2,
+                blurRadius: 7,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
+          ),
+          child: new IconButton(
+            icon: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, "/discussion");
+              },
+              child: Image(
+                image: AssetImage("assets/images/menu-bar.png"),
+                width: 30,
+              ),
+            ),
+            color: Color.fromRGBO(220, 220, 220, 1),
+            onPressed: () {},
           ),
         ),
-        leading: new IconButton(
-          icon: new Icon(Icons.menu),
-          color: Color.fromRGBO(220, 220, 220, 1),
-          onPressed: () {},
-        ),
         actions: [
-          Padding(
-            padding: EdgeInsets.all(18.0),
-            child: Icon(
-              Icons.search,
-              color: Color.fromRGBO(220, 220, 220, 1),
+          Container(
+            height: 50,
+            width: 40,
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(50),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 7,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+              ],
+            ),
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, "/swipe");
+              },
+              child: Icon(
+                Icons.search,
+                color: Color.fromRGBO(220, 220, 220, 1),
+              ),
             ),
           ),
         ],
@@ -84,6 +126,14 @@ class _DiscussionState extends State<Discussion> {
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white.withOpacity(0.2),
+                spreadRadius: 1,
+                blurRadius: 1,
+                offset: Offset(0, 1),
+              ),
+            ],
             image: DecorationImage(
               image: AssetImage("assets/images/background.png"),
               fit: BoxFit.fill,
@@ -117,7 +167,7 @@ class _TopTrendState extends State<TopTrend> {
 
     return Container(
       alignment: Alignment.topLeft,
-      padding: EdgeInsets.fromLTRB(3, 20, 0, 0),
+      padding: EdgeInsets.fromLTRB(3, 10, 0, 0),
       child: RaisedButton(
         color: Color(0xFFFF0000),
         onPressed: () {},
@@ -163,25 +213,25 @@ class _ProfilePic extends State<ProfilePic> {
           Stack(children: <Widget>[
             Container(
               height: 200,
-              width: 400,
-              margin: EdgeInsets.only(top: 2, left: 5.0, right: 5.0),
+              width: width,
+              margin: EdgeInsets.only(top: 10, left: 5.0, right: 5.0),
               decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 1,
-                      blurRadius: 1,
-                      offset: Offset(0, 1),
+                      color: Colors.white.withOpacity(0.9),
+                      spreadRadius: 0.1,
+                      blurRadius: 0.1,
+                      offset: Offset(0, 0.1),
                     ),
                   ],
                   image: DecorationImage(
-                    fit: BoxFit.scaleDown,
+                    fit: BoxFit.cover,
                     image: AssetImage(data.discImage),
                   )),
             ),
             Positioned(
               top: 30,
-              left: 310,
+              left: width - 80,
               child: Container(
                 alignment: Alignment.topRight,
                 height: 20,
@@ -211,7 +261,7 @@ class _ProfilePic extends State<ProfilePic> {
             ),
             Positioned(
               top: 175,
-              left: 330,
+              left: width - 70,
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: Row(
@@ -264,7 +314,7 @@ class _ProfilePic extends State<ProfilePic> {
           Container(
             width: width,
             height: 130,
-            margin: EdgeInsets.only(right: 10, left: 10),
+            margin: EdgeInsets.only(right: 5, left: 5, bottom: 5),
             padding: EdgeInsets.only(top: 0),
             decoration: BoxDecoration(
               boxShadow: [

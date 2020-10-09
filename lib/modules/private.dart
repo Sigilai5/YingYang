@@ -220,7 +220,7 @@ class _DashboardState extends State<Private> {
             ]),
           ),
         ),
-        bottomNavigationBar: BottomNav(),
+        bottomNavigationBar: BottomNav(3),
       ),
     );
   }

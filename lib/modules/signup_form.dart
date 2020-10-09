@@ -20,7 +20,7 @@ class _SignUpState extends State<SignUp> {
           decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                  color: Colors.white.withOpacity(0.3),
+                  color: Colors.white.withOpacity(0.8),
                   spreadRadius: 1,
                   blurRadius: 1,
                   offset: Offset(0, 1),
@@ -28,7 +28,7 @@ class _SignUpState extends State<SignUp> {
               ],
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('assets/images/background1.png'),
+                image: AssetImage('assets/images/background.png'),
               )),
           child: ListView(
             children: <Widget>[
@@ -79,7 +79,7 @@ class _Logo extends State<Logo> {
                   ],
                   image: DecorationImage(
                     fit: BoxFit.scaleDown,
-                    image: AssetImage('assets/images/Yin-Yan.png'),
+                    image: AssetImage('assets/images/Yin-Red.png'),
                   )),
             ),
             Container(
@@ -133,8 +133,9 @@ class _AccountFormState extends State<AccountForm> {
         obscureText: false,
         style: tstyle,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-          hintText: "Full Name",
+          contentPadding: EdgeInsets.all(20.0),
+          hintText: "Sarah Lohavra",
+          suffix: Text("Full Name", style: TextStyle(fontSize: 13.0)),
           filled: true,
           fillColor: Colors.white,
           border: OutlineInputBorder(
@@ -146,8 +147,31 @@ class _AccountFormState extends State<AccountForm> {
         obscureText: false,
         style: tstyle,
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-            hintText: "Email",
+            contentPadding: EdgeInsets.all(20.0),
+            hintText: "SarahLoha@gmail.com",
+            suffix: Text("Email", style: TextStyle(fontSize: 13.0)),
+            filled: true,
+            fillColor: Colors.white,
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(2.0))));
+    final birthdayField = TextField(
+        obscureText: false,
+        style: tstyle,
+        decoration: InputDecoration(
+            contentPadding: EdgeInsets.all(20.0),
+            hintText: "09|09|1987",
+            suffix: Text("Birthday", style: TextStyle(fontSize: 13.0)),
+            filled: true,
+            fillColor: Colors.white,
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(2.0))));
+    final addressField = TextField(
+        obscureText: false,
+        style: tstyle,
+        decoration: InputDecoration(
+            contentPadding: EdgeInsets.all(20.0),
+            hintText: "497 Evergreeen Rd.",
+            suffix: Text('Address', style: TextStyle(fontSize: 13.0)),
             filled: true,
             fillColor: Colors.white,
             border:
@@ -156,18 +180,9 @@ class _AccountFormState extends State<AccountForm> {
         obscureText: true,
         style: tstyle,
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-            hintText: "Password",
-            filled: true,
-            fillColor: Colors.white,
-            border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(2.0))));
-    final confirmPasswordField = TextField(
-        obscureText: true,
-        style: tstyle,
-        decoration: InputDecoration(
-            contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-            hintText: "Confirm Password",
+            contentPadding: EdgeInsets.all(20.0),
+            hintText: "********",
+            suffix: Text("password"),
             filled: true,
             fillColor: Colors.white,
             border:
@@ -175,7 +190,7 @@ class _AccountFormState extends State<AccountForm> {
 
     return Container(
       padding: EdgeInsets.only(
-        top: 10,
+        top: 0,
         bottom: 10,
         left: width / 6,
         right: width / 6,
@@ -184,54 +199,63 @@ class _AccountFormState extends State<AccountForm> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-              margin: EdgeInsets.only(bottom: 30),
+              margin: EdgeInsets.only(bottom: 10),
               child: Text("Create an Account",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 22,
+                    fontSize: 28,
                   ))),
           SizedBox(height: 5),
           fullNameField,
-          SizedBox(height: 10),
+          SizedBox(height: 15),
           emailField,
-          SizedBox(height: 10),
+          SizedBox(height: 15),
+          birthdayField,
+          SizedBox(height: 15),
+          addressField,
+          SizedBox(height: 15),
           passwordField,
-          SizedBox(height: 10),
-          confirmPasswordField,
-          SizedBox(height: 20),
+          SizedBox(height: 30),
           Container(
             width: 400,
             height: 50,
             child: RaisedButton(
               onPressed: () {},
-              color: Colors.blue,
+              color: Color(0xff1565D3),
               textColor: Colors.white,
-              child: Text("CONTINUE"),
+              child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "/letsbegin");
+                  },
+                  child: Text("CONTINUE", style: TextStyle(fontSize: 22))),
             ),
           ),
           Container(
             padding: EdgeInsets.only(top: 20),
+            alignment: Alignment.center,
             child: RichText(
+                textAlign: TextAlign.center,
                 text: TextSpan(
-              style: TextStyle(fontSize: 12),
-              children: <TextSpan>[
-                TextSpan(
-                  text: "By tapping Log in you agree with our ",
-                  style: TextStyle(color: Colors.black),
-                ),
-                TextSpan(
-                  text: "Terms of Service",
-                  style: TextStyle(color: Colors.blue),
-                  recognizer: TapGestureRecognizer()..onTap = _urlLauncher,
-                ),
-                TextSpan(text: " and ", style: TextStyle(color: Colors.black)),
-                TextSpan(
-                  text: " Privacy Policy.",
-                  style: TextStyle(color: Colors.red),
-                  recognizer: TapGestureRecognizer()..onTap = _urlLauncher,
-                ),
-              ],
-            )),
+                  style: TextStyle(fontSize: 12),
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: "By tapping Log in you agree with our ",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    TextSpan(
+                      text: "Terms of Service",
+                      style: TextStyle(color: Colors.blue),
+                      recognizer: TapGestureRecognizer()..onTap = _urlLauncher,
+                    ),
+                    TextSpan(
+                        text: " and ", style: TextStyle(color: Colors.black)),
+                    TextSpan(
+                      text: " Privacy Policy.",
+                      style: TextStyle(color: Colors.red),
+                      recognizer: TapGestureRecognizer()..onTap = _urlLauncher,
+                    ),
+                  ],
+                )),
           ),
         ],
       ),
