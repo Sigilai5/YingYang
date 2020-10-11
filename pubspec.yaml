@@ -54,6 +54,7 @@ flutter:
     - assets/images/swipe/
     - assets/images/letsbegin/
     - assets/images/editprofile/
+    - assets/images/chatting/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

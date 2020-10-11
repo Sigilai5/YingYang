@@ -1,3 +1,4 @@
+import 'package:app/modules/chatting.dart';
 import 'package:app/modules/discussion.dart';
 import 'package:app/modules/editprofile.dart';
 import 'package:app/modules/letsbegin.dart';
@@ -25,7 +26,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => Login(),
+        '/': (context) => Chatting(),
         '/editprofile': (context) => EditProfile(),
         '/login': (context) => Login(),
         '/discussion' : (context) => Discussion(),

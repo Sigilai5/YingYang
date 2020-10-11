@@ -81,7 +81,6 @@ class _EditProfileState extends State<EditProfile> {
                                         offset: Offset(1.0, 1.0),
                                         blurRadius: 1,
                                       ),
-
                                     ],
                                 ),
                             )
@@ -111,6 +110,7 @@ class _EditProfileState extends State<EditProfile> {
                           alignment: Alignment.bottomRight,
                           padding: EdgeInsets.all(15),
                           child: FloatingActionButton(
+                            heroTag: "btn1",
                             child: Icon(
                                 Icons.add,
                                 size: 18.0
@@ -157,6 +157,7 @@ class _EditProfileState extends State<EditProfile> {
                       alignment: Alignment.bottomRight,
                       height: 100,
                       child: FloatingActionButton(
+                        heroTag: "btn2",
                         child: Icon(
                             Icons.add,
                             size: 18.0
