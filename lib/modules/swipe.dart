@@ -47,8 +47,13 @@ class _SwipeState extends State<Swipe> {
             decoration: deco,
             padding: EdgeInsets.all(10),
             margin: EdgeInsets.fromLTRB(8, 8, 20, 8),
-            child: Image(
-              image: AssetImage("assets/images/imageicons/messages.png"),
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, "/chatting");
+              },
+              child: Image(
+                image: AssetImage("assets/images/imageicons/messages.png"),
+              ),
             ),
           )
         ],

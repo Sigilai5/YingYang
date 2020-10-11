@@ -29,6 +29,9 @@ class _SignUpState extends State<SignUp> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage('assets/images/background.png'),
+                  colorFilter: ColorFilter.mode(
+                      Colors.white24.withOpacity(0.6), BlendMode.dstATop
+                  )
               )),
           child: ListView(
             children: <Widget>[
@@ -79,7 +82,7 @@ class _Logo extends State<Logo> {
                   ],
                   image: DecorationImage(
                     fit: BoxFit.scaleDown,
-                    image: AssetImage('assets/images/Yin-Yan.png'),
+                    image: AssetImage('assets/images/Yin-Red.png'),
                   )),
             ),
             Container(
@@ -135,43 +138,78 @@ class _AccountFormState extends State<AccountForm> {
         decoration: InputDecoration(
           contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
           hintText: "Full Name",
+          hintStyle: hintStyle(),
           filled: true,
           fillColor: Colors.white,
-          border: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.blue),
-              borderRadius: BorderRadius.circular(2.0)),
+
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.blue, width: 1.0),
+              borderRadius: BorderRadius.circular(0.0)
+          ),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white, width: 0),
+              borderRadius: BorderRadius.circular(0.0)
+          ),
         ));
 
     final emailField = TextField(
         obscureText: false,
         style: tstyle,
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+            contentPadding: EdgeInsets.fromLTRB(13.0, 13.0, 13.0, 13.0),
             hintText: "Email",
+            hintStyle: hintStyle(),
             filled: true,
             fillColor: Colors.white,
-            border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(2.0))));
+
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.blue, width: 1.0),
+                borderRadius: BorderRadius.circular(0.0)
+            ),
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.white, width: 0),
+                borderRadius: BorderRadius.circular(0.0)
+            ),
+        )
+    );
     final passwordField = TextField(
         obscureText: true,
         style: tstyle,
         decoration: InputDecoration(
             contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
             hintText: "Password",
+            hintStyle: hintStyle(),
             filled: true,
             fillColor: Colors.white,
             border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(2.0))));
+                OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.blue, width: 1.0),
+              borderRadius: BorderRadius.circular(0.0)
+          ),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white, width: 0),
+              borderRadius: BorderRadius.circular(0.0)
+          ),
+        ));
     final confirmPasswordField = TextField(
         obscureText: true,
         style: tstyle,
         decoration: InputDecoration(
             contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
             hintText: "Confirm Password",
+            hintStyle: hintStyle(),
             filled: true,
             fillColor: Colors.white,
-            border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(2.0))));
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 1.0),
+              borderRadius: BorderRadius.circular(0.0)
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white, width: 0),
+              borderRadius: BorderRadius.circular(0.0)
+          ),
+        ));
 
     return Container(
       padding: EdgeInsets.only(
@@ -184,11 +222,13 @@ class _AccountFormState extends State<AccountForm> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-              margin: EdgeInsets.only(bottom: 30),
+              margin: EdgeInsets.only(bottom: 10),
               child: Text("Create an Account",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 22,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 25,
+                      fontFamily: "Proxima"
                   ))),
           SizedBox(height: 5),
           fullNameField,
@@ -215,31 +255,79 @@ class _AccountFormState extends State<AccountForm> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 20),
-            child: RichText(
+              padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+              margin: EdgeInsets.all(0),
+              alignment: Alignment.center,
+              child: RichText(
+                textAlign: TextAlign.center,
                 text: TextSpan(
-              style: TextStyle(fontSize: 12),
-              children: <TextSpan>[
-                TextSpan(
-                  text: "By tapping Log in you agree with our ",
-                  style: TextStyle(color: Colors.black),
+                    style: TextStyle(
+                        color: Colors.grey[600],
+                        fontFamily: "Proxima"
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: "By tapping LogIn you agree to our ",
+                        style: TextStyle(
+                            fontFamily: "Proxima"
+                        )
+                      ),
+                      TextSpan(
+                        text: "Terms of Service",
+                        style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            color: Color.fromRGBO(66, 134, 245, 1),
+                          fontFamily: "Proxima"
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () async{
+                            // single tapped
+                            final url = 'https://www.twitter.com';
+                            if (await canLaunch(url)) {
+                              await launch(url);
+                            } else {
+                              print('Unable to open URL $url');
+                            }
+                          },
+                      ),
+                      TextSpan(
+                          text: " and ",
+                          style: TextStyle(
+                              fontFamily: "Proxima"
+                          )
+                      ),
+                      TextSpan(
+                        text: "Privacy Policy",
+                        style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontFamily: "Proxima",
+                            color: Color.fromRGBO(255,0,0, 1)
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () async{
+                            // single tapped
+                            final url = 'https://www.google.com';
+                            if (await canLaunch(url)) {
+                              await launch(url);
+                            } else {
+                              print('Unable to open URL $url');
+                            }
+                          },
+                      )
+                    ]
                 ),
-                TextSpan(
-                  text: "Terms of Service",
-                  style: TextStyle(color: Colors.blue),
-                  recognizer: TapGestureRecognizer()..onTap = _urlLauncher,
-                ),
-                TextSpan(text: " and ", style: TextStyle(color: Colors.black)),
-                TextSpan(
-                  text: " Privacy Policy.",
-                  style: TextStyle(color: Colors.red),
-                  recognizer: TapGestureRecognizer()..onTap = _urlLauncher,
-                ),
-              ],
-            )),
-          ),
+              )
+          )
         ],
       ),
+    );
+  }
+
+  TextStyle hintStyle(){
+    return TextStyle(
+        fontSize: 16,
+        color: Colors.grey[400],
+        fontFamily: "Proxima"
     );
   }
 

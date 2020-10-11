@@ -52,11 +52,16 @@ class _MyHomePageState extends State<MyHomePage> {
           elevation: 10,
           backgroundColor: Colors.white,
           centerTitle: true,
-          title: Text(
-            "Home",
-            style: TextStyle(
-              fontFamily: "Proxima",
-              color: redColor,
+          title: InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, "/discussion");
+            },
+            child: Text(
+              "Home",
+              style: TextStyle(
+                fontFamily: "Proxima",
+                color: redColor,
+              ),
             ),
           ),
           leading: Container(
