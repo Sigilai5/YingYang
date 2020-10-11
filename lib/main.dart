@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => Chatting(),
+        '/': (context) => SignUp(),
         '/editprofile': (context) => EditProfile(),
         '/login': (context) => Login(),
         '/discussion' : (context) => Discussion(),
@@ -37,6 +37,7 @@ class _MyAppState extends State<MyApp> {
         '/chat': (context) => ChatPage(),
         '/group': (context) => Group(),
         '/swipe': (context) => Swipe(),
+        '/chatting': (context) => Chatting(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(
