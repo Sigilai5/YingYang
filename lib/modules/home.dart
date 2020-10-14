@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: new IconButton(
               icon: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, "/discussion");
+                  Navigator.pushNamed(context, "/profile");
                 },
                 child: Image(
                   image: AssetImage("assets/images/menu-bar.png"),
@@ -109,14 +109,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               height: 50,
               width: 40,
-              child: InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, "/swipe");
-                },
-                child: Icon(
-                  Icons.search,
-                  color: Color.fromRGBO(220, 220, 220, 1),
-                ),
+              child: Icon(
+                Icons.search,
+                color: Color.fromRGBO(220, 220, 220, 1),
               ),
             ),
           ],
@@ -131,123 +126,128 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
           child: ListView(
             children: homeDataList.map((item) {
-              return Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("${item.backgroundImage}"),
-                        fit: BoxFit.scaleDown,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.8),
-                          spreadRadius: 1,
-                          blurRadius: 7,
-                          offset: Offset(0, 3),
-                        )
-                      ]),
-                  height: 180,
-                  width: width,
-                  margin: EdgeInsets.all(10.0),
-                  child: Container(
+              return GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, "/viewprofile");
+                },
+                child: Container(
                     decoration: BoxDecoration(
-                      color: Color.fromRGBO(255, 255, 255, 0.3),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Container(
-                                margin: EdgeInsets.all(20),
-                                decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5.0)),
-                                  border: Border.all(
-                                      color: Colors.white, width: 2.5),
-                                ),
-                                child: Image(
-                                  image: AssetImage("${item.foreImage}"),
-                                  height: 50,
-                                  width: 50,
-                                )),
-                          ],
+                        image: DecorationImage(
+                          image: AssetImage("${item.backgroundImage}"),
+                          fit: BoxFit.scaleDown,
                         ),
-                        Container(
-                          color: Color.fromRGBO(255, 255, 255, 0.6),
-                          height: 40,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.8),
+                            spreadRadius: 1,
+                            blurRadius: 7,
+                            offset: Offset(0, 3),
+                          )
+                        ]),
+                    height: 180,
+                    width: width,
+                    margin: EdgeInsets.all(10.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(255, 255, 255, 0.3),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Row(
                             children: <Widget>[
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  Container(
-                                    margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
-                                    child: Row(
-                                      children: <Widget>[
-                                        Container(
-                                          child: Row(
-                                            children: [
-                                              IconButton(
-                                                  color: redColor,
-                                                  icon: FaIcon(FontAwesomeIcons
-                                                      .solidHeart),
-                                                  onPressed: () {}),
-                                              Text("${item.likeCount}",
-                                                  style: TextStyle(
-                                                      color: redColor,
-                                                      fontFamily: "Proxima",
-                                                      fontWeight:
-                                                          FontWeight.bold)),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          margin:
-                                              EdgeInsets.fromLTRB(20, 0, 0, 0),
-                                          child: Row(
-                                            children: [
-                                              IconButton(
-                                                  color: redColor,
-                                                  icon: FaIcon(
-                                                      FontAwesomeIcons.minus),
-                                                  onPressed: () {}),
-                                              Text("${item.dislikeCount}",
-                                                  style: TextStyle(
-                                                      color: redColor,
-                                                      fontFamily: "Proxima",
-                                                      fontWeight:
-                                                          FontWeight.bold))
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                              Container(
+                                  margin: EdgeInsets.all(20),
+                                  decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(5.0)),
+                                    border: Border.all(
+                                        color: Colors.white, width: 2.5),
                                   ),
-                                ],
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Text(
-                                    "Follow",
-                                    style: TextStyle(
-                                        color: redColor,
-                                        fontFamily: "Proxima",
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  IconButton(
-                                      icon: FaIcon(
-                                          FontAwesomeIcons.solidBookmark),
-                                      color: redColor,
-                                      onPressed: () {}),
-                                ],
-                              ),
+                                  child: Image(
+                                    image: AssetImage("${item.foreImage}"),
+                                    height: 50,
+                                    width: 50,
+                                  )),
                             ],
                           ),
-                        ),
-                      ],
-                    ),
-                  ));
+                          Container(
+                            color: Color.fromRGBO(255, 255, 255, 0.6),
+                            height: 40,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    Container(
+                                      margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                      child: Row(
+                                        children: <Widget>[
+                                          Container(
+                                            child: Row(
+                                              children: [
+                                                IconButton(
+                                                    color: redColor,
+                                                    icon: FaIcon(FontAwesomeIcons
+                                                        .solidHeart),
+                                                    onPressed: () {}),
+                                                Text("${item.likeCount}",
+                                                    style: TextStyle(
+                                                        color: redColor,
+                                                        fontFamily: "Proxima",
+                                                        fontWeight:
+                                                            FontWeight.bold)),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            margin:
+                                                EdgeInsets.fromLTRB(20, 0, 0, 0),
+                                            child: Row(
+                                              children: [
+                                                IconButton(
+                                                    color: redColor,
+                                                    icon: FaIcon(
+                                                        FontAwesomeIcons.minus),
+                                                    onPressed: () {}),
+                                                Text("${item.dislikeCount}",
+                                                    style: TextStyle(
+                                                        color: redColor,
+                                                        fontFamily: "Proxima",
+                                                        fontWeight:
+                                                            FontWeight.bold))
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Follow",
+                                      style: TextStyle(
+                                          color: redColor,
+                                          fontFamily: "Proxima",
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    IconButton(
+                                        icon: FaIcon(
+                                            FontAwesomeIcons.solidBookmark),
+                                        color: redColor,
+                                        onPressed: () {}),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+              );
             }).toList(),
             // This trailing comma makes auto-formatting nicer for build methods.
           ),

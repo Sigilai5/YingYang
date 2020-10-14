@@ -161,7 +161,6 @@ class _AccountFormState extends State<AccountForm> {
             hintStyle: hintStyle(),
             filled: true,
             fillColor: Colors.white,
-
             focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.blue, width: 1.0),
                 borderRadius: BorderRadius.circular(0.0)
@@ -242,15 +241,15 @@ class _AccountFormState extends State<AccountForm> {
           Container(
             width: 400,
             height: 50,
-            child: RaisedButton(
-              onPressed: () {},
-              color: Colors.blue,
-              textColor: Colors.white,
-              child: InkWell(
-                  onTap: (){
-                    Navigator.pushNamed(context, "/letsbegin");
-                  },
-                  child: Text("CONTINUE")
+            child: GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(context, "/editprofile");
+              },
+              child: RaisedButton(
+                onPressed: () {},
+                color: Colors.blue,
+                textColor: Colors.white,
+                child: Text("CONTINUE"),
               ),
             ),
           ),

@@ -1,6 +1,6 @@
 import 'package:app/modules/chatting.dart';
 import 'package:app/modules/discussion.dart';
-import 'package:app/modules/editprofile.dart';
+import 'package:app/modules/myprofile.dart';
 import 'package:app/modules/letsbegin.dart';
 import 'package:app/modules/login.dart';
 import 'package:app/modules/signup_form.dart';
@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/',
       routes: {
         '/': (context) => Login(),
-        '/editprofile': (context) => EditProfile(),
+        '/myprofile': (context) => MyProfile(),
         '/login': (context) => Login(),
         '/discussion' : (context) => Discussion(),
         '/signupform' : (context) => SignUp(),
@@ -38,6 +38,7 @@ class _MyAppState extends State<MyApp> {
         '/group': (context) => Group(),
         '/swipe': (context) => Swipe(),
         '/chatting': (context) => Chatting(),
+        '/editprofile': (context) => AddEditProfile(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(

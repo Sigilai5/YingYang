@@ -82,9 +82,7 @@ class _DashboardState extends State<Private> {
             image: DecorationImage(
                 image: AssetImage("assets/images/background.png"),
                 fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(
-                    Colors.white.withOpacity(0.2), BlendMode.dstATop
-                )
+
             ),
           ),
           child: Padding(
@@ -134,30 +132,35 @@ class _DashboardState extends State<Private> {
                             scrollDirection: Axis.horizontal,
                             children: privateDataList.map((item) {
                               return Card(
-                                child: Container(
-                                  width: 230.0,
-                                  child: Column(
-                                    children: [
-                                      ListTile(
-                                        title: Text(
-                                          '${item.name}',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Hexcolor('#4a4a4a')),
+                                child: GestureDetector(
+                                  onTap: (){
+                                    Navigator.pushNamed(context, "/chatting");
+                                  },
+                                  child: Container(
+                                    width: 230.0,
+                                    child: Column(
+                                      children: [
+                                        ListTile(
+                                          title: Text(
+                                            '${item.name}',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Hexcolor('#4a4a4a')),
+                                          ),
+                                          subtitle: Text(
+                                            '${item.message}',
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                color: Hexcolor('#b5b5b5')),
+                                          ),
+                                          leading: Image.asset(
+                                            '${item.pic}',
+                                            height: 40,
+                                            width: 40,
+                                          ),
                                         ),
-                                        subtitle: Text(
-                                          '${item.message}',
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              color: Hexcolor('#b5b5b5')),
-                                        ),
-                                        leading: Image.asset(
-                                          '${item.pic}',
-                                          height: 40,
-                                          width: 40,
-                                        ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               );
@@ -188,29 +191,34 @@ class _DashboardState extends State<Private> {
                   child: ListView(
                       children: privateDataList.map((item) {
                     return Card(
-                      child: Container(
-                        width: 230.0,
-                        child: Column(
-                          children: [
-                            ListTile(
-                              title: Text(
-                                '${item.name}',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Hexcolor('#4a4a4a')),
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.pushNamed(context, "/chatting");
+                        },
+                        child: Container(
+                          width: 230.0,
+                          child: Column(
+                            children: [
+                              ListTile(
+                                title: Text(
+                                  '${item.name}',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Hexcolor('#4a4a4a')),
+                                ),
+                                subtitle: Text(
+                                  '${item.message}',
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(color: Hexcolor('#b5b5b5')),
+                                ),
+                                leading: Image.asset(
+                                  '${item.pic}',
+                                  height: 40,
+                                  width: 40,
+                                ),
                               ),
-                              subtitle: Text(
-                                '${item.message}',
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(color: Hexcolor('#b5b5b5')),
-                              ),
-                              leading: Image.asset(
-                                '${item.pic}',
-                                height: 40,
-                                width: 40,
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     );

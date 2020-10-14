@@ -24,10 +24,16 @@ class _AddEditProfileState extends State<AddEditProfile> {
 
   List<Item> users = <Item>[
     const Item(
-        'Android',
+        'Male',
         Icon(
-          Icons.android,
-          color: const Color(0xFF167F67),
+          Icons.person,
+          color: Colors.red,
+        )),
+    const Item(
+        'Female',
+        Icon(
+          Icons.person,
+          color: Colors.red,
         )),
   ];
 
@@ -139,133 +145,131 @@ class _AddEditProfileState extends State<AddEditProfile> {
             ),
           ],
         ),
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Container(
-              constraints: BoxConstraints(
-                minHeight: MediaQuery.of(context).size.height,
+        body: SingleChildScrollView(
+          child: Container(
+
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/background.png"),
+                fit: BoxFit.cover,
               ),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/background.png"),
-                  fit: BoxFit.fill,
+            ),
+            child: Column(
+              children: <Widget>[
+                //Group chat section
+                SizedBox(
+                  height: 20,
                 ),
-              ),
-              child: Column(
-                children: <Widget>[
-                  //Group chat section
-                  SizedBox(
-                    height: 20,
-                  ),
-                  // Group type section
-                  Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                          child: Row(
-                            children: <Widget>[
-                              new IconButton(
-                                icon: FaIcon(
-                                  FontAwesomeIcons.tag,
-                                  color: Color.fromRGBO(255, 0, 0, 1),
-                                ),
-                                color: Color.fromRGBO(220, 220, 220, 1),
-                                onPressed: () {},
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
-                                child: Text(
-                                  "Age Group:",
-                                  style: chatTextWithShadow,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Padding(
-                            padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                            child: Center(
-                                child: SfRangeSliderTheme(
-                                    data: SfRangeSliderThemeData(
-                                        activeTrackHeight: 5,
-                                        inactiveTrackHeight: 5,
-                                        activeDivisorColor: Colors.grey[400],
-                                        inactiveDivisorColor: Colors.grey[400],
-                                        inactiveDivisorRadius: 6,
-                                        activeDivisorRadius: 5,
-                                        thumbColor: Colors.red,
-                                        activeTrackColor: Colors.red,
-                                        thumbStrokeColor: Colors.grey[200],
-                                        thumbStrokeWidth: 2),
-                                    child: SfRangeSlider(
-                                      min: 18.0,
-                                      max: 100.0,
-                                      values: _values,
-                                      interval: 82,
-                                      showTicks: false,
-                                      showDivisors: true,
-                                      showLabels: true,
-                                      showTooltip: true,
-                                      inactiveColor:
-                                          Colors.grey.withOpacity(0.2),
-                                      onChanged: (SfRangeValues newValues) {
-                                        setState(() {
-                                          _values = newValues;
-                                        });
-                                      },
-                                    )))),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Divider(color: Colors.white),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                    child: Row(
-                      children: <Widget>[
-                        new IconButton(
-                          icon: FaIcon(
-                            FontAwesomeIcons.venusMars,
-                            color: Color.fromRGBO(255, 0, 0, 1),
-                          ),
-                          color: Color.fromRGBO(220, 220, 220, 1),
-                          onPressed: () {},
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            "Gender",
-                            style: chatTextWithShadow,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    child: Padding(
+                // Group type section
+                Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
                         padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                        child: Column(
+                        child: Row(
                           children: <Widget>[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    border: Border.all(
-                                        color: Colors.white,
-                                        style: BorderStyle.solid,
-                                        width: 1),
-                                  ),
-                                  padding: EdgeInsets.all(4),
+                            new IconButton(
+                              icon: FaIcon(
+                                FontAwesomeIcons.tag,
+                                color: Color.fromRGBO(255, 0, 0, 1),
+                              ),
+                              color: Color.fromRGBO(220, 220, 220, 1),
+                              onPressed: () {},
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+                              child: Text(
+                                "Age Group:",
+                                style: chatTextWithShadow,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Padding(
+                          padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                          child: Center(
+                              child: SfRangeSliderTheme(
+                                  data: SfRangeSliderThemeData(
+                                      activeTrackHeight: 5,
+                                      inactiveTrackHeight: 5,
+                                      activeDivisorColor: Colors.grey[400],
+                                      inactiveDivisorColor: Colors.grey[400],
+                                      inactiveDivisorRadius: 6,
+                                      activeDivisorRadius: 5,
+                                      thumbColor: Colors.red,
+                                      activeTrackColor: Colors.red,
+                                      thumbStrokeColor: Colors.grey[200],
+                                      thumbStrokeWidth: 2),
+                                  child: SfRangeSlider(
+                                    min: 18.0,
+                                    max: 100.0,
+                                    values: _values,
+                                    interval: 82,
+                                    showTicks: false,
+                                    showDivisors: true,
+                                    showLabels: true,
+                                    showTooltip: true,
+                                    inactiveColor:
+                                        Colors.grey.withOpacity(0.2),
+                                    onChanged: (SfRangeValues newValues) {
+                                      setState(() {
+                                        _values = newValues;
+                                      });
+                                    },
+                                  )))),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Divider(color: Colors.white),
+                Container(
+                  padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                  child: Row(
+                    children: <Widget>[
+                      new IconButton(
+                        icon: FaIcon(
+                          FontAwesomeIcons.venusMars,
+                          color: Color.fromRGBO(255, 0, 0, 1),
+                        ),
+                        color: Color.fromRGBO(220, 220, 220, 1),
+                        onPressed: () {},
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Gender",
+                          style: chatTextWithShadow,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  child: Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 0, 20, 0),
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(4.0),
+                                  border: Border.all(
+                                      color: Colors.white,
+                                      style: BorderStyle.solid,
+                                      width: 0),
+                                ),
+                                padding: EdgeInsets.fromLTRB(4, 0, 4, 0),
+                                child: DropdownButtonHideUnderline(
                                   child: DropdownButton<Item>(
                                     dropdownColor: Colors.white,
                                     hint: Text("I AM"),
@@ -292,17 +296,19 @@ class _AddEditProfileState extends State<AddEditProfile> {
                                     }).toList(),
                                   ),
                                 ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    border: Border.all(
-                                        color: Colors.white,
-                                        style: BorderStyle.solid,
-                                        width: 1),
-                                  ),
-                                  margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                                  padding: EdgeInsets.all(4),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(4.0),
+                                  border: Border.all(
+                                      color: Colors.white,
+                                      style: BorderStyle.solid,
+                                      width: 1),
+                                ),
+                                margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                                padding: EdgeInsets.fromLTRB(4, 0, 4, 0),
+                                child: DropdownButtonHideUnderline(
                                   child: DropdownButton<Interest>(
                                     dropdownColor: Colors.white,
                                     hint: Text("I AM INTERESTED IN"),
@@ -328,162 +334,164 @@ class _AddEditProfileState extends State<AddEditProfile> {
                                     }).toList(),
                                   ),
                                 ),
-                              ],
-                            ),
-                          ],
-                        )),
-                  ),
-                  Divider(color: Colors.white),
-                  // Add participants section
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              new IconButton(
-                                icon: FaIcon(
-                                  FontAwesomeIcons.solidHeart,
-                                  color: Color.fromRGBO(255, 0, 0, 1),
-                                ),
-                                color: Color.fromRGBO(220, 220, 220, 1),
-                                onPressed: () {},
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "Add Your Interests",
-                                  style: chatTextWithShadow,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "(What is this)",
-                                  style: TextStyle(
-                                    fontFamily: "Proxima",
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 10,
-                                    color: Colors.red,
-                                  ),
-                                ),
-                              )
                             ],
                           ),
-                          Container(
-                              margin: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                        ],
+                      )),
+                ),
+                Divider(color: Colors.white),
+                // Add participants section
+                Container(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            new IconButton(
+                              icon: FaIcon(
+                                FontAwesomeIcons.solidHeart,
+                                color: Color.fromRGBO(255, 0, 0, 1),
+                              ),
+                              color: Color.fromRGBO(220, 220, 220, 1),
+                              onPressed: () {},
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                "(Optional)",
+                                "Add Your Interests",
+                                style: chatTextWithShadow,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "(What is this)",
                                 style: TextStyle(
                                   fontFamily: "Proxima",
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 10,
                                   color: Colors.red,
                                 ),
-                              )),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Container(
-                            color: Colors.white,
-                            child: Column(
-                              children: [
-                                Container(
-                                    padding: EdgeInsets.all(5),
-                                    child: GridView.count(
-                                        crossAxisSpacing: 10,
-                                        mainAxisSpacing: 10,
-                                        childAspectRatio: (itemWidth / 80),
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        crossAxisCount: 3,
-                                        controller: new ScrollController(
-                                            keepScrollOffset: false),
-                                        children: interestDataList.map((item) {
-                                          return Container(
-                                            height: 50,
+                              ),
+                            )
+                          ],
+                        ),
+                        Container(
+                            margin: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                            child: Text(
+                              "(Optional)",
+                              style: TextStyle(
+                                fontFamily: "Proxima",
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                color: Colors.red,
+                              ),
+                            )),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          color: Colors.white,
+                          child: Column(
+                            children: [
+                              Container(
+                                  padding: EdgeInsets.all(5),
+                                  child: GridView.count(
+                                      crossAxisSpacing: 10,
+                                      mainAxisSpacing: 10,
+                                      childAspectRatio: (itemWidth / 80),
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      crossAxisCount: 3,
+                                      controller: new ScrollController(
+                                          keepScrollOffset: false),
+                                      children: interestDataList.map((item) {
+                                        return Container(
+                                          height: 70,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFF800000),
+                                            borderRadius:
+                                                BorderRadius.circular(1),
+                                            image: DecorationImage(
+                                              image:
+                                                  AssetImage("${item.pic}"),
+                                              fit: BoxFit.fitWidth,
+                                            ),
+                                          ),
+                                          child: Container(
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF800000),
-                                              borderRadius:
-                                                  BorderRadius.circular(1),
-                                              image: DecorationImage(
-                                                image:
-                                                    AssetImage("${item.pic}"),
-                                                fit: BoxFit.fitWidth,
+                                              color: Color(0x77800000),
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                "${item.names}",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.w400,
+                                                    fontSize: 18),
                                               ),
                                             ),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                color: Color(0x77800000),
-                                              ),
-                                              child: Center(
-                                                child: Text(
-                                                  "${item.names}",
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 20),
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        }).toList())),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: <Widget>[
-                                    Container(
-                                      margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
-                                      width: 120,
-                                      child: Card(
-                                        color: Color(0xFF800000),
-                                        child: IconButton(
-                                            iconSize: 40,
-                                            color: Colors.white,
-                                            icon: FaIcon(
-                                                FontAwesomeIcons.plusCircle),
-                                            onPressed: () {}),
-                                      ),
+                                          ),
+                                        );
+                                      }).toList())),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: <Widget>[
+                                  Container(
+                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                    width: MediaQuery.of(context).size.width/3.7,
+                                    child: Card(
+                                      color: Color(0xFF800000),
+                                      child: IconButton(
+                                          iconSize: 30,
+                                          color: Colors.white,
+                                          icon: FaIcon(
+                                              FontAwesomeIcons.plusCircle),
+                                          onPressed: () {}),
                                     ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                        ],
-                      ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Container(
-                    color: redColor,
-                    child: FlatButton(
-                        onPressed: () {},
-                        child: Text(
-                          "SAVE & REVIEW YOUR PROFILE",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w800,
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        )),
-                  ),
-                  SizedBox(
-                    height: 50,
-                  )
-                ],
-              ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Container(
+                  color: redColor,
+                  child: FlatButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/letsbegin");
+                      },
+                      child: Text(
+                        "SAVE & REVIEW YOUR PROFILE",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      )),
+                ),
+                SizedBox(
+                  height: 50,
+                )
+              ],
             ),
-
-            // This trailing comma makes auto-formatting nicer for build methods.
           ),
+
+          // This trailing comma makes auto-formatting nicer for build methods.
         ));
   }
 }

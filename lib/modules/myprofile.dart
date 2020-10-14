@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
-class EditProfile extends StatefulWidget {
+class MyProfile extends StatefulWidget {
   @override
-  _EditProfileState createState() => _EditProfileState();
+  _MyProfileState createState() => _MyProfileState();
 }
 
-class _EditProfileState extends State<EditProfile> {
+class _MyProfileState extends State<MyProfile> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);

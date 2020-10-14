@@ -21,7 +21,7 @@ class _BottomNavState extends State<BottomNav> {
         BuildNavItem(Image.asset("assets/images/Fire-xxxhdpi.png"), 1, "/chat"),
         BuildNavItem(Image.asset("assets/images/imageicons/Yin-Yan.png"), 2, "/swipe"),
         BuildNavItem(Image.asset("assets/images/Target-xxxhdpi.png"), 3, "/private"),
-        BuildNavItem(Image.asset("assets/images/Profile_Icon-xxxhdpi.png"), 4, "/editprofile")
+        BuildNavItem(Image.asset("assets/images/Profile_Icon-xxxhdpi.png"), 4, "/myprofile")
       ],
     );
   }

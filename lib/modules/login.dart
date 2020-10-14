@@ -193,7 +193,7 @@ class _LoginState extends State<Login> {
                                 padding: const EdgeInsets.all(10.0),
                                 child: InkWell(
                                   onTap: () {
-                                    Navigator.pushNamed(context, "/home");
+                                    Navigator.pushNamed(context, "/swipe");
                                   },
                                   child: Text(
                                     "Sign In",

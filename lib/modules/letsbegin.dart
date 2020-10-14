@@ -269,7 +269,7 @@ class _LetsBeginState extends State<LetsBegin> {
                     color: Colors.white,
                     child: InkWell(
                       onTap: (){
-                        Navigator.pushNamed(context, "/home");
+                        Navigator.pushNamed(context, "/swipe");
                       },
                       child: const Text(
                           'LET\'S BEGIN',
