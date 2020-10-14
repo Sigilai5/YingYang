@@ -241,16 +241,13 @@ class _AccountFormState extends State<AccountForm> {
           Container(
             width: 400,
             height: 50,
-            child: GestureDetector(
-              onTap: (){
+            child: RaisedButton(
+              onPressed: () {
                 Navigator.pushNamed(context, "/editprofile");
               },
-              child: RaisedButton(
-                onPressed: () {},
-                color: Colors.blue,
-                textColor: Colors.white,
-                child: Text("CONTINUE"),
-              ),
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: Text("CONTINUE"),
             ),
           ),
           Container(
