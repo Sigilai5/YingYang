@@ -1,3 +1,4 @@
+import 'package:app/modules/home.dart';
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatefulWidget {
@@ -18,9 +19,9 @@ class _BottomNavState extends State<BottomNav> {
     return Row(
       children: <Widget>[
         BuildNavItem(Image.asset("assets/images/Home-xxhdpi.png"), 0, "/home"),
-        BuildNavItem(Image.asset("assets/images/Fire-xxxhdpi.png"), 1, "/chat"),
+        BuildNavItem(Image.asset("assets/images/Fire-xxxhdpi.png"), 1, "/discussion"),
         BuildNavItem(Image.asset("assets/images/imageicons/Yin-Yan.png"), 2, "/swipe"),
-        BuildNavItem(Image.asset("assets/images/Target-xxxhdpi.png"), 3, "/private"),
+        BuildNavItem(Image.asset("assets/images/Target-xxxhdpi.png"), 3, "/chat"),
         BuildNavItem(Image.asset("assets/images/Profile_Icon-xxxhdpi.png"), 4, "/myprofile")
       ],
     );
@@ -71,9 +72,12 @@ class _BottomNavState extends State<BottomNav> {
                     : [],
                 //borderRadius: BorderRadius.all(Radius.circular(40.0))
                 shape: BoxShape.circle),
-            child: InkWell(
+            child: GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, url);
+                  // Navigator.push(context, new MaterialPageRoute(
+                  //     builder: (context) => new MyHomePage())
+                  // );
                 },
                 child: image
             ),

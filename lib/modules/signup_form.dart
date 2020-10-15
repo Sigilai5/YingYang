@@ -1,3 +1,4 @@
+import 'package:app/modules/profile-add-edit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -243,7 +244,7 @@ class _AccountFormState extends State<AccountForm> {
             height: 50,
             child: RaisedButton(
               onPressed: () {
-                Navigator.pushNamed(context, "/editprofile");
+                Navigator.push(context, MaterialPageRoute(builder: (context) => AddEditProfile()));
               },
               color: Colors.blue,
               textColor: Colors.white,

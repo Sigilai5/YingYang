@@ -14,7 +14,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var pi = 3.142;
-    TextStyle footer = Theme.of(context).textTheme.display1;
+    
     return Scaffold(
         body: SafeArea(
           child : SingleChildScrollView(

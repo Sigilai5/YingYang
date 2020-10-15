@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+
+
 class Swipe extends StatefulWidget {
+  BuildContext context;
   @override
   _SwipeState createState() => _SwipeState();
 }
@@ -15,73 +18,79 @@ class Swipe extends StatefulWidget {
 class _SwipeState extends State<Swipe> {
   List<Widget> cardList = new List();
   List<Person> personList = new List();
+  BuildContext contextCome;
+  _SwipeState();
 
   @override
   Widget build(BuildContext context) {
+    for(int x = 0; x < personList.length; x++){
+      cardList.add(tasteDraggable(personList[x].imgUrl,personList[x].name,personList[x].location,x));
+    }
+
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        toolbarHeight: 60,
-        leading: Container(
-            padding: EdgeInsets.all(8),
-            margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
-            decoration: deco,
-            child: Image(
-              image: AssetImage("assets/images/menu-bar.png"),
-            )
-        ),
-        centerTitle: true,
-        title: Container(
-          padding: EdgeInsets.all(5.0),
-          margin: EdgeInsets.all(2.0),
-          child: Image(
-            height: 55,
-              image: AssetImage("assets/images/imageicons/Yin-Yan.png")
-          ),
-        ),
-        actions: <Widget>[
-          Container(
-            decoration: deco,
-            padding: EdgeInsets.all(10),
-            margin: EdgeInsets.all(8),
-            child: Image(
-              image: AssetImage("assets/images/imageicons/Money.png"),
-            ),
-          ),
-          Container(
-            decoration: deco,
-            padding: EdgeInsets.all(10),
-            margin: EdgeInsets.fromLTRB(8, 8, 20, 8),
-            child: InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, "/chatting");
-              },
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          toolbarHeight: 60,
+          leading: Container(
+              padding: EdgeInsets.all(8),
+              margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+              decoration: deco,
               child: Image(
-                image: AssetImage("assets/images/imageicons/messages.png"),
-              ),
-            ),
-          )
-        ],
-      ),
-      body: SafeArea(
-        child: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/background.png"),
-                  fit: BoxFit.cover,
-                  colorFilter: ColorFilter.mode(
-                      Colors.white.withOpacity(0.5),
-                      BlendMode.dstATop
-                  ),
+                image: AssetImage("assets/images/menu-bar.png"),
               )
           ),
-          child: Stack(
-            children: cardList,
-          )
+          centerTitle: true,
+          title: Container(
+            padding: EdgeInsets.all(5.0),
+            margin: EdgeInsets.all(2.0),
+            child: Image(
+              height: 55,
+                image: AssetImage("assets/images/imageicons/Yin-Yan.png")
+            ),
+          ),
+          actions: <Widget>[
+            Container(
+              decoration: deco,
+              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.all(8),
+              child: Image(
+                image: AssetImage("assets/images/imageicons/Money.png"),
+              ),
+            ),
+            Container(
+              decoration: deco,
+              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.fromLTRB(8, 8, 20, 8),
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, "/chatting");
+                },
+                child: Image(
+                  image: AssetImage("assets/images/imageicons/messages.png"),
+                ),
+              ),
+            )
+          ],
         ),
-      ),
-      bottomNavigationBar: BottomNav(2),
-    );
+        body: SafeArea(
+          child: Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/images/background.png"),
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(
+                        Colors.white.withOpacity(0.5),
+                        BlendMode.dstATop
+                    ),
+                )
+            ),
+            child: Stack(
+              children: cardList,
+            )
+          ),
+        ),
+        bottomNavigationBar: BottomNav(2),
+      );
   }
 
   //decorations for icons
@@ -122,17 +131,14 @@ class _SwipeState extends State<Swipe> {
 
   void _removeCard(index){
     setState(() {
-      cardList.removeAt(index);
+      personList.removeAt(index);
     });
   }
 
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration.zero,()
-    {
-      cardList = _getCards();
-    });
+    _getCards();
   }
 
   List _getCards() {
@@ -141,10 +147,6 @@ class _SwipeState extends State<Swipe> {
     personList.add(Person("assets/images/swipe/3.jpg", "Grace Msalame", "Nairobi, KE"));
     personList.add(Person("assets/images/swipe/4.jpg", "Mercy Kamau", "Nairobi, KE"));
     personList.add(Person("assets/images/swipe/5.jpg", "Amber Mwangi", "Nairobi, KE"));
-    for(int x = 0; x < personList.length; x++){
-      cardList.add(tasteDraggable(personList[x].imgUrl,personList[x].name,personList[x].location,x));
-    }
-    return cardList;
   }
 
   Widget tasteDraggable(String imageUrl, String name, String location, int x){

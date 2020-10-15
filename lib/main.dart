@@ -12,6 +12,8 @@ import 'package:app/modules/chat.dart';
 import 'package:app/modules/home.dart';
 import 'package:app/modules/profile-add-edit.dart';
 
+import 'modules/viewprofile.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -33,12 +35,13 @@ class _MyAppState extends State<MyApp> {
         '/signupform' : (context) => SignUp(),
         '/letsbegin': (context) => LetsBegin(),
         '/private': (context) => Private(),
-        '/home': (context) => MyHomePage(),
+        "/home": (context) => MyHomePage(),
         '/chat': (context) => ChatPage(),
         '/group': (context) => Group(),
         '/swipe': (context) => Swipe(),
         '/chatting': (context) => Chatting(),
         '/editprofile': (context) => AddEditProfile(),
+        '/viewprofile': (context) => ViewProfile(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(

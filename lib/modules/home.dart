@@ -140,11 +140,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.8),
                             spreadRadius: 1,
-                            blurRadius: 7,
+                            blurRadius: 1,
                             offset: Offset(0, 3),
                           )
                         ]),
-                    height: 180,
+                    height: 160,
                     width: width,
                     margin: EdgeInsets.all(10.0),
                     child: Container(
